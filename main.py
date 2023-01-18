@@ -1,0 +1,2 @@
+from fgvk import *
+kutyak = []
