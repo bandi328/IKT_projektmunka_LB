@@ -9,7 +9,7 @@ class Kutya:
             self.ivar = adatok[5]
             self.statusz = adatok [6]
 
-    def eletkor(self):
+    def eletkor(self, kutyak):
         eletkor = ""
         for kutya in kutyak:
             if kutya.szuletes >= 2020:

@@ -32,12 +32,48 @@ def Adomanykezeles():
         print(f"Az egyenleg:{adomany}")
 
 # 5.MENUPONT
-def Kutyaadatmod():
-    print("Lehetőségek:\n1. Ivartalanítása:1\n 2.Státusza:2")
-    # kivansag = input("Melyik adatot szeretné módosítani:")
-    # if kivansag == "1":
-    #     # ide kell egy fajlba iras!!!!
-    # else:
-    #     # ide kell meg egy fajlba iras
+def Kutyaadatmod(kutyak):
+    menupontok = ["Név", "Termet", "Ivartalanítás", "Státusz"]
+    nev = input("Adja meg a kutya nevét: ")
+    for kutya in kutyak:
+        if kutya.nev == nev:
+            print("Válasszon módosítandó adatot:")
+            valasztas = menu(menupontok)
+            while valasztas != 0:
+                if valasztas == 1:
+                    kutya.nev = input("Adja meg az új nevet: ")
+                elif valasztas == 2:
+                    kutya.termet = TermetBeker()
+                elif valasztas == 3:
+                    kutya.ivar = IvarBeker()
+                elif valasztas == 4:
+                    kutya.statusz = StatuszBeker()
+                valasztas = menu(menupontok)
+            break
+        else:
+            print("Nem található a megadott névnek megfelelő vizsgázó!")
 
+# 2. választás
+def TermetBeker():
+    lehetsegesTermet = ['kicsi', 'közepes', 'nagy']
+    for i in range(len(lehetsegesTermet)):
+        print(f"{i+1}. {lehetsegesTermet[i]}")
+    valasztas = "ab"
+    while '0' > valasztas or '3' < valasztas:
+        valasztas = input("Adja meg a típus számát [1-3]: ")
+    return lehetsegesTermet[int(valasztas)-1]    
+
+# 3. választás
+def IvarBeker():
+    amiszeretne = input("Ivartalaanítva lett a kutya[Igen/Nem]:")
+    ivar = "ab"
+    if amiszeretne == "Igen":
+        ivar = "Igen"
+    return ivar
+
+# 4. választás
+# def StatuszBeker():
+
+
+    
 # 4. Menupont
