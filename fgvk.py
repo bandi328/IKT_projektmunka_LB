@@ -4,6 +4,7 @@ import os
 
 def FajlOlvas(kutyak):
     f = open("kutyak.txt", "r", encoding="utf-8")
+    f.readline()
     for sor in f:
         egyKutya = Kutya(sor)
         kutyak.append(egyKutya)
