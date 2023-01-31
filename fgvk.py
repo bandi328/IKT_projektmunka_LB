@@ -102,3 +102,14 @@ def IvarBeker():
 
     
 # 4. Menupont
+
+# fájlÍrás
+def FájlÍrás(kutyak, emberek):
+    f = open("kutyak.txt", "w", encoding="utf-8")
+    for kutya in kutyak:
+        f.write(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz}\n")
+    f.close()
+    f = open("ember.txt", "w", encoding="utf-8")
+    for ember in emberek:
+        f.write(f"{ember.kutyanev};{ember.nev};{ember.telefonszam};{ember.emailcim};{ember.lakcim}\n")
+    f.close()

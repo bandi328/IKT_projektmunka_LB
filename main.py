@@ -1,6 +1,7 @@
 from fgvk import *
 from menu import menu
 kutyak = []
+emberek = []
 FajlOlvasKutya(kutyak)
 FajlOlvasEmber(emberek)
 menupontok = ["Örökbefogadás", "Menhelyi kutyák kilistázása", "Új kutya felvétele", "Kutya lefoglalása", "Kutya adatai módosítása", "Adományok kezelése"]
