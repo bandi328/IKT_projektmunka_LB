@@ -18,7 +18,21 @@ def FajlOlvasEmber(emberek):
         emberek.append(egyEmber)
     f.close()
 
-# MENUPONTOK
+def FajlOlvasAdomany(adomanyok):
+    f = open("adomany.txt", "r", encoding="utf-8")
+    for sor in f:
+        egyAdomany = Adomany(sor)
+        adomanyok.append(egyAdomany)
+    f.close()
+
+
+# 1. MENUPONT
+def Orokbefogadas(kutyak):
+    allatnev = "a"
+    while allatnev != kutyak.Nev:
+        allatnev = input("Adja meg a kutya nevét: ")
+    
+# 2. MENUPONT
 def Listamenu():
     menupontok2 = ["Fajta szerint", "Születési év szerint", "Termet szerint", "Nem szerint", "Ivartalanitás szerint", "Státusz szerint"]
     valasztas = menu(menupontok2)
@@ -36,25 +50,8 @@ def Listamenu():
         valasztas = menu(menupontok2)
 
 
-# 1. MENUPONT
-def Orokbefogadas(kutyak):
-    allatnev = "a"
-    while allatnev != kutyak.Nev:
-        allatnev = input("Adja meg a kutya nevét: ")
-    
+# 4. MENUPONT
 
-
-# 6. MENUPONT
-def Adomanykezeles():
-    adomany = 30000
-    print(f"Jelenlegi egyenleg: {adomany}")
-    kerdes = input("Szeretne új adományt rögzíteni? (Igen/Nem): ")
-    if kerdes == "igen":
-        ujadomany = int(input("Adja meg az összeget: "))
-        adomany += ujadomany
-        print(f"Új egyenleg: {adomany}")
-    else:
-        print(f"Az egyenleg:{adomany}")
 
 # 5.MENUPONT
 def Kutyaadatmod(kutyak):
@@ -106,6 +103,16 @@ def StatuszBeker():
         valasztas = input("Adja meg a típus számát [1-3]: ")
     return lehetsegesStatusz[int(valasztas)-1]  
 
+# 6. MENUPONT
+def Adomanykezeles():
+    adomany = 30000
+    print(f"Jelenlegi egyenleg: {adomany}")
+    kerdes = input("Szeretne új adományt rögzíteni? (Igen/Nem): ")
+    if kerdes == "igen":
+        ujadomany = int(input("Adja meg az összeget: "))
+        adomany += ujadomany
+        print(f"Új egyenleg: {adomany}")
+    else:
+        print(f"Az egyenleg:{adomany}")
 
     
-# 4. MENUPONT
