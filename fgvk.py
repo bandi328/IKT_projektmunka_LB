@@ -70,7 +70,7 @@ def Kutyaadatmod(kutyak):
         else:
             print("Nem található a megadott névnek megfelelő vizsgázó!")
 
-# 2. választás
+      # 2. választás
 def TermetBeker():
     lehetsegesTermet = ['kicsi', 'közepes', 'nagy']
     for i in range(len(lehetsegesTermet)):
@@ -80,7 +80,7 @@ def TermetBeker():
         valasztas = input("Adja meg a típus számát [1-3]: ")
     return lehetsegesTermet[int(valasztas)-1]    
 
-# 3. választás
+      # 3. választás
 def IvarBeker():
     amiszeretne = input("Ivartalaanítva lett a kutya[Igen/Nem]:")
     ivar = "ab"
@@ -88,9 +88,16 @@ def IvarBeker():
         ivar = "Igen"
     return ivar
 
-# 4. választás
-# def StatuszBeker():
+      # 4. választás
+def StatuszBeker():
+    lehetsegesStatusz = ['lakos','foglalt', "örökbeadott"]
+    for i in range(len(lehetsegesStatusz)):
+        print(f"{i+1}. {lehetsegesStatusz[i]}")
+    valasztas = "ab"
+    while '0' > valasztas or '3' < valasztas:
+        valasztas = input("Adja meg a típus számát [1-3]: ")
+    return lehetsegesStatusz[int(valasztas)-1]  
 
 
     
-# 4. Menupont
+# 4. MENUPONT
