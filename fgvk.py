@@ -2,12 +2,20 @@ from menu import menu
 from Kutya import *
 import os
 
-def FajlOlvas(kutyak):
+def FajlOlvasKutya(kutyak):
     f = open("kutyak.txt", "r", encoding="utf-8")
     f.readline()
     for sor in f:
         egyKutya = Kutya(sor)
         kutyak.append(egyKutya)
+    f.close()
+
+def FajlOlvasEmber(emberek):
+    f = open("ember.txt", "r", encoding="utf-8")
+    f.readline()
+    for sor in f:
+        egyEmber = Ember(sor)
+        emberek.append(egyEmber)
     f.close()
 
 # MENUPONTOK
