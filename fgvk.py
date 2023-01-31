@@ -1,5 +1,13 @@
 from menu import menu
+from Kutya import *
 import os
+
+def FajlOlvas(kutyak):
+    f = open("kutyak.txt", "r", encoding="utf-8")
+    for sor in f:
+        egyKutya = Kutya(sor)
+        kutyak.append(egyKutya)
+    f.close()
 
 # MENUPONTOK
 def Listamenu():
@@ -17,6 +25,14 @@ def Listamenu():
         elif valasztas == 5:
             print("Kutyuska5")
         valasztas = menu(menupontok2)
+
+
+# 1. MENUPONT
+def Orokbefogadas(kutyak):
+    allatnev = "a"
+    while allatnev != kutyak.Nev:
+        allatnev = input("Adja meg a kutya nevét: ")
+    
 
 
 # 6. MENUPONT
