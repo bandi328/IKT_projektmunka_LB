@@ -2,7 +2,6 @@ from fgvk import *
 from menu import menu
 kutyak = []
 emberek = []
-adomany = FajlOlvasAdomany()
 FajlOlvasKutya(kutyak)
 FajlOlvasEmber(emberek)
 
@@ -17,9 +16,10 @@ while valasztas != 0:
     elif valasztas == 3:
         print("Új kutya felvételét választotta")
     elif valasztas == 4:
-        KutyaLefoglalas(kutyak, emberek, adomany)
+        KutyaLefoglalas(kutyak, emberek, osszeg)
     elif valasztas == 5:
-        Kutyaadatmod(kutyak, emberek, adomany)
+        Kutyaadatmod(kutyak, emberek, osszeg)
     elif valasztas == 6:
-        Adomanykezeles(kutyak, emberek, adomany)
+        osszeg = FajlOlvasAdomany()
+        Adomanykezeles(kutyak, emberek, osszeg)
     vlasztas = menu(menupontok)

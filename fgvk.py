@@ -137,28 +137,30 @@ def StatuszBeker():
     return lehetsegesStatusz[int(valasztas)-1]  
 
 # 6. MENUPONT
-def Adomanykezeles():
-    adomany = 30000
-    print(f"Jelenlegi egyenleg: {adomany}")
+def Adomanykezeles(kutyak, emberek, osszeg):
+    # osszeg = int(adomany)
+    szam = int(osszeg)
+    print(f"Jelenlegi egyenleg: {szam}")
     kerdes = input("Szeretné kezelni az adományokat? (Igen/Nem): ")
-    if kerdes == "igen":
+    if kerdes == "Igen":
         inp = input("Mit szeretne tenni? [+(adomány hozzá adása)/-(költés feljegyzése)]: ")
         if inp == "+":
             ujadomany = int(input("Adja meg az összeget: "))
-            adomany += ujadomany
-            print(f"Új egyenleg: {adomany}")
+            szam += ujadomany
+            print(f"Új egyenleg: {szam}")
         elif inp == "-":
-            koltseg = input("Adja meg a költség összegét:")
-            adomany -= koltseg
-            print(f"Az új egyenleg: {adomany}")
+            koltseg = int(input("Adja meg a költség összegét:"))
+            szam -= koltseg
+            print(f"Az új egyenleg: {szam}")
     else:
-        print(f"Az egyenleg nem változott!({adomany})")
+        print(f"Az egyenleg nem változott!({szam})")
+    FajlIras(kutyak, emberek, szam)
     
     
 # 4. Menupont
 
 # fájlÍrás
-def FájlÍrás(kutyak, emberek, osszeg):
+def FajlIras(kutyak, emberek, osszeg):
     f = open("kutyak.txt", "w", encoding="utf-8")
     for kutya in kutyak:
         f.write(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz}\n")
@@ -168,6 +170,5 @@ def FájlÍrás(kutyak, emberek, osszeg):
         f.write(f"{ember.kutyanev};{ember.nev};{ember.telefonszam};{ember.emailcim};{ember.lakcim}\n")
     f.close()
     f = open("adomany.txt", "w", encoding="utf-8")
-    for szam in osszeg:
-        f.write(szam)
+    f.write(str(osszeg))
     f.close()
