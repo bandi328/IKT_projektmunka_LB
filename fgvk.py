@@ -73,6 +73,17 @@ def Listamenu():
 
 
 # 4. MENUPONT
+def KutyaLefoglalas(kutyak, emberek):
+    inp = input("Szeretne lefoglalni egy kutyát? [Igen/Nem]: ")
+    if inp == "Igen":
+        kutyanev = input("Adja meg a kutya nevét:")
+        for kutya in kutyak:
+            if kutya.nev == kutyanev:
+                kutya.statusz = "foglalt"
+                print(f"A kutya státusza vátoztatva lett {kutya.statusz}ra.")
+    else:
+        print("Nem változtatta meg a kutya státuszát.")
+    FajlIras(kutyak, emberek)
 
 
 # 5.MENUPONT
@@ -129,14 +140,20 @@ def StatuszBeker():
 def Adomanykezeles():
     adomany = 30000
     print(f"Jelenlegi egyenleg: {adomany}")
-    kerdes = input("Szeretne új adományt rögzíteni? (Igen/Nem): ")
+    kerdes = input("Szeretné kezelni az adományokat? (Igen/Nem): ")
     if kerdes == "igen":
-        ujadomany = int(input("Adja meg az összeget: "))
-        adomany += ujadomany
-        print(f"Új egyenleg: {adomany}")
+        inp = input("Mit szeretne tenni? [+(adomány hozzá adása)/-(költés feljegyzése)]: ")
+        if inp == "+":
+            ujadomany = int(input("Adja meg az összeget: "))
+            adomany += ujadomany
+            print(f"Új egyenleg: {adomany}")
+        elif inp == "-":
+            koltseg = input("Adja meg a költség összegét:")
+            adomany -= koltseg
+            print(f"Az új egyenleg: {adomany}")
     else:
-        print(f"Az egyenleg:{adomany}")
-
+        print(f"Az egyenleg nem változott!({adomany})")
+    
     
 # 4. Menupont
 

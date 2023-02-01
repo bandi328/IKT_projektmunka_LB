@@ -17,9 +17,9 @@ while valasztas != 0:
     elif valasztas == 3:
         print("Új kutya felvételét választotta")
     elif valasztas == 4:
-        print("Kutya lefoglalását választotta")
+        KutyaLefoglalas(kutyak, emberek, adomany)
     elif valasztas == 5:
-        Kutyaadatmod(kutyak)
+        Kutyaadatmod(kutyak, emberek, adomany)
     elif valasztas == 6:
-        Adomanykezeles()
+        Adomanykezeles(kutyak, emberek, adomany)
     vlasztas = menu(menupontok)
