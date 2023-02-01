@@ -1,6 +1,8 @@
 from menu import menu
 from Kutya import *
+from Ember import *
 import os
+import re
 
 def FajlOlvasKutya(kutyak):
     f = open("kutyak.txt", "r", encoding="utf-8")
@@ -18,20 +20,40 @@ def FajlOlvasEmber(emberek):
         emberek.append(egyEmber)
     f.close()
 
-def FajlOlvasAdomany(adomanyok):
+def FajlOlvasAdomany():
+    adomany = 0
     f = open("adomany.txt", "r", encoding="utf-8")
     for sor in f:
-        egyAdomany = Adomany(sor)
-        adomanyok.append(egyAdomany)
+        adomany = sor
     f.close()
-
+    return adomany
 
 # 1. MENUPONT
+regexEmail = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+regexTel = r'/^[0-9]{10,14}$/'
+def checkEmail():
+    email = input("Email cím: ")
+    if(re.fullmatch(regexEmail, email)):
+        return email
+    else:
+        checkEmail()
+def checkTel():
+    tel = input("Telefonszám: ")
+    if(re.fullmatch(regexEmail, tel)):
+        return tel
+    else:
+        checkTel()
+
 def Orokbefogadas(kutyak):
-    allatnev = "a"
-    while allatnev != kutyak.Nev:
-        allatnev = input("Adja meg a kutya nevét: ")
-    
+    allatNev = "a"
+    while allatNev not in kutyak.Nev:
+        allatNev = input("Adja meg az örökbefogadni kívánt kutya nevét: ")
+    print("Adja meg adatait!")
+    emberNev = input("Teljes név: ")
+    checkTel()
+    checkEmail()
+    lakcim = input("Lakcím: ")
+
 # 2. MENUPONT
 def Listamenu():
     menupontok2 = ["Fajta szerint", "Születési év szerint", "Termet szerint", "Nem szerint", "Ivartalanitás szerint", "Státusz szerint"]
@@ -119,7 +141,7 @@ def Adomanykezeles():
 # 4. Menupont
 
 # fájlÍrás
-def FájlÍrás(kutyak, emberek):
+def FájlÍrás(kutyak, emberek, osszeg):
     f = open("kutyak.txt", "w", encoding="utf-8")
     for kutya in kutyak:
         f.write(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz}\n")
@@ -127,4 +149,8 @@ def FájlÍrás(kutyak, emberek):
     f = open("ember.txt", "w", encoding="utf-8")
     for ember in emberek:
         f.write(f"{ember.kutyanev};{ember.nev};{ember.telefonszam};{ember.emailcim};{ember.lakcim}\n")
+    f.close()
+    f = open("adomany.txt", "w", encoding="utf-8")
+    for szam in osszeg:
+        f.write(szam)
     f.close()
