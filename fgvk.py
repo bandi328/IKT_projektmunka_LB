@@ -138,11 +138,10 @@ def StatuszBeker():
 
 # 6. MENUPONT
 def Adomanykezeles(kutyak, emberek, osszeg):
-    # osszeg = int(adomany)
     szam = int(osszeg)
     print(f"Jelenlegi egyenleg: {szam}")
     kerdes = input("Szeretné kezelni az adományokat? (Igen/Nem): ")
-    if kerdes == "Igen":
+    if kerdes.lower() == "igen":
         inp = input("Mit szeretne tenni? [+(adomány hozzá adása)/-(költés feljegyzése)]: ")
         if inp == "+":
             ujadomany = int(input("Adja meg az összeget: "))
@@ -155,9 +154,7 @@ def Adomanykezeles(kutyak, emberek, osszeg):
     else:
         print(f"Az egyenleg nem változott!({szam})")
     FajlIras(kutyak, emberek, szam)
-    
-    
-# 4. Menupont
+
 
 # fájlÍrás
 def FajlIras(kutyak, emberek, osszeg):
