@@ -4,9 +4,9 @@ from Ember import *
 import os
 import re
 
+# FÁJLOLVASÁSOK
 def FajlOlvasKutya(kutyak):
     f = open("kutyak.txt", "r", encoding="utf-8")
-    f.readline()
     for sor in f:
         egyKutya = Kutya(sor)
         kutyak.append(egyKutya)
@@ -14,7 +14,6 @@ def FajlOlvasKutya(kutyak):
 
 def FajlOlvasEmber(emberek):
     f = open("ember.txt", "r", encoding="utf-8")
-    f.readline()
     for sor in f:
         egyEmber = Ember(sor)
         emberek.append(egyEmber)
@@ -71,9 +70,24 @@ def Listamenu():
             print("Kutyuska5")
         valasztas = menu(menupontok2)
 
+# 3. MENUPONT
+def KutyaFelvetel(kutyak):
+    inp = input("Szeretne új kutyát felvenni[Igen/Nem]:")
+    if inp == "Igen":
+        neve = input("Adja meg a kutya nevét:")
+        szuletes = input("Adja meg a kutya születési évét:")
+        fajta = input("Adja meg a kutya fajtáját:")
+        termet = input("Adja meg a kuya termetét:")
+        neme = input("Adja meg a kutya nemét:")
+        ivar = input("Ivartalanított a kutya?[igen/nem]:")
+        statusz = input("Mi a státusza?[lakos/fogalalt/örökbeadott]")
+    f = open("kutyak.txt", "a", encoding="utf-8")
+    f.write(f"{neve};{szuletes};{fajta};{termet};{neme};{ivar};{statusz}\n")
+    print("A kutya felvétele sikeres volt!")
+
 
 # 4. MENUPONT
-def KutyaLefoglalas(kutyak, emberek):
+def KutyaLefoglalas(kutyak, emberek, osszeg):
     inp = input("Szeretne lefoglalni egy kutyát? [Igen/Nem]: ")
     if inp == "Igen":
         kutyanev = input("Adja meg a kutya nevét:")
@@ -83,7 +97,7 @@ def KutyaLefoglalas(kutyak, emberek):
                 print(f"A kutya státusza vátoztatva lett {kutya.statusz}ra.")
     else:
         print("Nem változtatta meg a kutya státuszát.")
-    FajlIras(kutyak, emberek)
+    FajlIras(kutyak, emberek, osszeg)
 
 
 # 5.MENUPONT

@@ -14,8 +14,9 @@ while valasztas != 0:
     elif valasztas == 2:
         print("A Menhelyi kutyák kilistázását választotta")
     elif valasztas == 3:
-        print("Új kutya felvételét választotta")
-    elif valasztas == 4:
+        KutyaFelvetel(kutyak)
+    elif valasztas == 4:   
+        osszeg = FajlOlvasAdomany()
         KutyaLefoglalas(kutyak, emberek, osszeg)
     elif valasztas == 5:
         Kutyaadatmod(kutyak, emberek, osszeg)
