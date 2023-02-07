@@ -73,7 +73,7 @@ def Listamenu():
 
 
 # 4. MENUPONT
-def KutyaLefoglalas(kutyak, emberek):
+def KutyaLefoglalas(kutyak, emberek, osszeg):
     inp = input("Szeretne lefoglalni egy kutyát? [Igen/Nem]: ")
     if inp == "Igen":
         kutyanev = input("Adja meg a kutya nevét:")
@@ -83,7 +83,7 @@ def KutyaLefoglalas(kutyak, emberek):
                 print(f"A kutya státusza vátoztatva lett {kutya.statusz}ra.")
     else:
         print("Nem változtatta meg a kutya státuszát.")
-    FajlIras(kutyak, emberek)
+    FajlIras(kutyak, emberek, osszeg)
 
 
 # 5.MENUPONT
