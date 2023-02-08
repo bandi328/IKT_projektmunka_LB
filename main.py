@@ -12,7 +12,7 @@ while valasztas != 0:
     if valasztas == 1:
         print("A az örökbefogadást választotta")
     elif valasztas == 2:
-        print("A Menhelyi kutyák kilistázását választotta")
+        Listamenu(kutyak)
     elif valasztas == 3:
         KutyaFelvetel(kutyak)
     elif valasztas == 4:   

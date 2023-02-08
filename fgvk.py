@@ -54,20 +54,40 @@ def Orokbefogadas(kutyak):
     lakcim = input("Lakcím: ")
 
 # 2. MENUPONT
-def Listamenu():
+def Listamenu(kutyak):
     menupontok2 = ["Fajta szerint", "Születési év szerint", "Termet szerint", "Nem szerint", "Ivartalanitás szerint", "Státusz szerint"]
     valasztas = menu(menupontok2)
     while valasztas != 0:
         if valasztas == 1:
-            print("Kutyuska1")
+            fajta = input("Adja meg a kutyák fajtáját:")
+            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            for kutya in kutyak:
+                if kutya.fajta == fajta:
+                    print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
         elif valasztas == 2:
-            print("Kutyuska2")
+            szulinap = int(input("Adja meg a kutya születési évét:"))
+            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            for kutya in kutyak:
+                if kutya.szuletes == szulinap:
+                    print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
         elif valasztas == 3:
-            print("Kutyuska3")
+            termet = input("Adja meg a kutya termetét[nagy/közepes/kicsi]:")
+            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            for kutya in kutyak:
+                if kutya.termet == termet:
+                    print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
         elif valasztas == 4:
-            print("Kutyuska4")
+            nem = input("Adja meg a kutya nemét[lány/fiú]:")
+            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            for kutya in kutyak:
+                if kutya.nem == nem:
+                    print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
         elif valasztas == 5:
-            print("Kutyuska5")
+            ivar = input("Adja meg a kutya ivartalanítva van-e[Igen/Nem]:")
+            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            for kutya in kutyak:
+                if kutya.ivar == ivar:
+                    print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")   
         valasztas = menu(menupontok2)
 
 # 3. MENUPONT
