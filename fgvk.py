@@ -90,6 +90,7 @@ def Listamenu(kutyak):
                     print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")   
         valasztas = menu(menupontok2)
 
+
 # 3. MENUPONT
 def KutyaFelvetel(kutyak):
     inp = input("Szeretne új kutyát felvenni[Igen/Nem]:")
@@ -175,19 +176,31 @@ def Adomanykezeles(kutyak, emberek, osszeg):
     szam = int(osszeg)
     print(f"Jelenlegi egyenleg: {szam}")
     kerdes = input("Szeretné kezelni az adományokat? (Igen/Nem): ")
+    while kerdes.lower() != "igen" and kerdes.lower() != "nem":
+        print("Kérem válasszon a lehetőségek közül!")
+        kerdes = input("Szeretné kezelni az adományokat? (Igen/Nem): ")
     if kerdes.lower() == "igen":
         inp = input("Mit szeretne tenni? [+(adomány hozzá adása)/-(költés feljegyzése)]: ")
+        while inp != "+" and inp != "-":
+            print("Kérem válasszon a lehetőségek közül!")
+            inp = input("Mit szeretne tenni? [+(adomány hozzá adása)/-(költés feljegyzése)]: ")
         if inp == "+":
-            ujadomany = int(input("Adja meg az összeget: "))
-            szam += ujadomany
-            print(f"Új egyenleg: {szam}")
-        elif inp == "-":
-            koltseg = int(input("Adja meg a költség összegét:"))
-            szam -= koltseg
+            koltseg = input("Adja meg a költség összegét:")
+            while koltseg.isnumeric() == False:
+                print("Kérem számot adjon meg!")
+                koltseg = input("Adja meg a költség összegét:")
+            szam += int(koltseg)
+            print(f"Az új egyenleg: {szam}")
+        else:
+            koltseg = input("Adja meg a költség összegét:")
+            while koltseg.isnumeric() == False:
+                print("Kérem számot adjon meg!")
+                koltseg = input("Adja meg a költség összegét:")
+            szam -= int(koltseg)
             print(f"Az új egyenleg: {szam}")
     else:
-        print(f"Az egyenleg nem változott!({szam})")
-    FajlIras(kutyak, emberek, szam)
+        print("Az egyenleg nem változott!")
+
 
 
 # fájlÍrás
