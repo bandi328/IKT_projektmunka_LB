@@ -4,9 +4,9 @@ from Ember import *
 import os
 import re
 
+# FÁJLOLVASÁSOK
 def FajlOlvasKutya(kutyak):
     f = open("kutyak.txt", "r", encoding="utf-8")
-    f.readline()
     for sor in f:
         egyKutya = Kutya(sor)
         kutyak.append(egyKutya)
@@ -14,7 +14,6 @@ def FajlOlvasKutya(kutyak):
 
 def FajlOlvasEmber(emberek):
     f = open("ember.txt", "r", encoding="utf-8")
-    f.readline()
     for sor in f:
         egyEmber = Ember(sor)
         emberek.append(egyEmber)
@@ -57,21 +56,56 @@ def Orokbefogadas(kutyak, emberek, osszeg):
 
 
 # 2. MENUPONT
-def Listamenu():
+def Listamenu(kutyak):
     menupontok2 = ["Fajta szerint", "Születési év szerint", "Termet szerint", "Nem szerint", "Ivartalanitás szerint", "Státusz szerint"]
     valasztas = menu(menupontok2)
     while valasztas != 0:
         if valasztas == 1:
-            print("Kutyuska1")
+            fajta = input("Adja meg a kutyák fajtáját:")
+            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            for kutya in kutyak:
+                if kutya.fajta == fajta:
+                    print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
         elif valasztas == 2:
-            print("Kutyuska2")
+            szulinap = int(input("Adja meg a kutya születési évét:"))
+            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            for kutya in kutyak:
+                if kutya.szuletes == szulinap:
+                    print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
         elif valasztas == 3:
-            print("Kutyuska3")
+            termet = input("Adja meg a kutya termetét[nagy/közepes/kicsi]:")
+            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            for kutya in kutyak:
+                if kutya.termet == termet:
+                    print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
         elif valasztas == 4:
-            print("Kutyuska4")
+            nem = input("Adja meg a kutya nemét[lány/fiú]:")
+            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            for kutya in kutyak:
+                if kutya.nem == nem:
+                    print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
         elif valasztas == 5:
-            print("Kutyuska5")
+            ivar = input("Adja meg a kutya ivartalanítva van-e[Igen/Nem]:")
+            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            for kutya in kutyak:
+                if kutya.ivar == ivar:
+                    print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")   
         valasztas = menu(menupontok2)
+
+# 3. MENUPONT
+def KutyaFelvetel(kutyak):
+    inp = input("Szeretne új kutyát felvenni[Igen/Nem]:")
+    if inp == "Igen":
+        neve = input("Adja meg a kutya nevét:")
+        szuletes = input("Adja meg a kutya születési évét:")
+        fajta = input("Adja meg a kutya fajtáját:")
+        termet = input("Adja meg a kuya termetét:")
+        neme = input("Adja meg a kutya nemét:")
+        ivar = input("Ivartalanított a kutya?[igen/nem]:")
+        statusz = input("Mi a státusza?[lakos/fogalalt/örökbeadott]")
+    f = open("kutyak.txt", "a", encoding="utf-8")
+    f.write(f"{neve};{szuletes};{fajta};{termet};{neme};{ivar};{statusz}\n")
+    print("A kutya felvétele sikeres volt!")
 
 
 # 4. MENUPONT

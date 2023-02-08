@@ -1,4 +1,3 @@
-kutyaneve;személy neve;telefonszam;email;lakcim
 Igor;Nagy Anna;36 70 587 2145;nagy.anna@gmail.com;Győr Kiss utca 3.
 Bogyó;Kiss Béla;36 70 236 589;kiss.bela@gmail.com;Győr Nagy utca 6.
 Karcsi;Horváth Réka;36 30 942 3614;horvath.reka@gmail.com;Győr Jereváni út 23.

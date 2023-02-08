@@ -1,4 +1,3 @@
-Don;2014;keverék;nagy;fiú;igen;lakos
 Dunya;2018;németjuhász;nagy;lány;igen;lakos
 Lüszi;2021;kaukázusi;juhászkutya;nagy;lány;igen
 Honey;2020;pitbull;közepes;fiú;igen;lakos
@@ -7,7 +6,7 @@ Beni;2012;keverék;kicsi;fiú;igen;lakos
 Bianka;2011;keverék;közepes;lány;igen;lakos
 Artúr;2017;tacskó;kicsi;fiú;igen;lakos
 Gino;2011;juhászkutya;nagy;lány;igen;lakos
-Lángos;2020;pitbull;közepes;fiú;igen;lakos
+Lángos;2020;pitbull;közepes;fiú;igen;foglalt
 Cserkés;2020;keverék;nagy;fiú;igen;lakos
 Dorisz;2015;pitbull;nagy;lány;igen;lakos
 Cheester;2018;staffordshire;közepes;fiú;igen;lakos
@@ -18,3 +17,4 @@ Nudli;2017;tacskó;közepes;fiú;igen;foglalt
 Bodza;2018;husky;nagy;lány;igen;örökbeadott
 Puszedli;2022;keverék;közepes;lány;igen;lakos
 Csibész;2016;mudi;közepes;fiú;nem;örökbeadott
+Trixy;2017;németjuhász;nagy;lány;igen;lakos

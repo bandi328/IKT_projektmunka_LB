@@ -12,10 +12,10 @@ while valasztas != 0:
     if valasztas == 1:
         Orokbefogadas(kutyak, emberek)
     elif valasztas == 2:
-        print("A Menhelyi kutyák kilistázását választotta")
+        Listamenu(kutyak)
     elif valasztas == 3:
-        print("Új kutya felvételét választotta")
-    elif valasztas == 4:
+        KutyaFelvetel(kutyak)
+    elif valasztas == 4:   
         osszeg = FajlOlvasAdomany()
         KutyaLefoglalas(kutyak, emberek, osszeg)
     elif valasztas == 5:
