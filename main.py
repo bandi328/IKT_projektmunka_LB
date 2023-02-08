@@ -10,7 +10,7 @@ menupontok = ["Örökbefogadás", "Menhelyi kutyák kilistázása", "Új kutya f
 valasztas = menu(menupontok)
 while valasztas != 0:
     if valasztas == 1:
-        print("A az örökbefogadást választotta")
+        Orokbefogadas(kutyak, emberek)
     elif valasztas == 2:
         Listamenu(kutyak)
     elif valasztas == 3:
