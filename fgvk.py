@@ -30,29 +30,31 @@ def FajlOlvasAdomany():
 
 # 1. MENUPONT
 regexEmail = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
-regexTel = r'/^[0-9]{10,14}$/'
 def checkEmail():
-    email = input("Email cím: ")
+    email = input("\tEmail cím: ")
     if(re.fullmatch(regexEmail, email)):
         return email
     else:
         checkEmail()
 def checkTel():
-    tel = input("Telefonszám: ")
-    if(re.fullmatch(regexEmail, tel)):
+    tel = input("\tTelefonszám: ")
+    if len(tel) == 11 and tel.isnumeric():
         return tel
     else:
         checkTel()
 
-def Orokbefogadas(kutyak):
+def Orokbefogadas(kutyak, emberek, osszeg):
     allatNev = "a"
-    while allatNev not in kutyak.Nev:
+    while allatNev in kutyak:
         allatNev = input("Adja meg az örökbefogadni kívánt kutya nevét: ")
     print("Adja meg adatait!")
-    emberNev = input("Teljes név: ")
-    checkTel()
+    emberNev = input("\tTeljes név: ")
     checkEmail()
-    lakcim = input("Lakcím: ")
+    checkTel()
+    lakcim = input("\tLakcím: ")
+    
+    FajlIras(kutyak, emberek, osszeg)
+
 
 # 2. MENUPONT
 def Listamenu():
