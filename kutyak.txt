@@ -16,5 +16,6 @@ Nudli;2017;tacskó;közepes;fiú;igen;foglalt
 Ördög;2020;mudi;közepes;lány;igen;
 Bodza;2018;husky;nagy;lány;igen;örökbeadott
 Puszedli;2022;keverék;közepes;lány;igen;lakos
-Csibész;2016;mudi;közepes;fiú;nem;örökbeadott
+Csibész;2016;mudi;közepes;fiú;nem;foglalt
 Trixy;2017;németjuhász;nagy;lány;igen;lakos
+Podlipnik;2006;kaukázusi juhászkutya;kicsi;fiú;igen;lakos

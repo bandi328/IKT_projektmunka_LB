@@ -9,6 +9,7 @@ menupontok = ["Örökbefogadás", "Menhelyi kutyák kilistázása", "Új kutya f
 
 valasztas = menu(menupontok)
 while valasztas != 0:
+    osszeg = FajlOlvasAdomany()
     if valasztas == 1:
         Orokbefogadas(kutyak, emberek)
     elif valasztas == 2:
@@ -16,11 +17,9 @@ while valasztas != 0:
     elif valasztas == 3:
         KutyaFelvetel(kutyak)
     elif valasztas == 4:   
-        osszeg = FajlOlvasAdomany()
         KutyaLefoglalas(kutyak, emberek, osszeg)
     elif valasztas == 5:
-        Kutyaadatmod(kutyak, emberek, osszeg)
+        Kutyaadatmod(kutyak)
     elif valasztas == 6:
-        osszeg = FajlOlvasAdomany()
         Adomanykezeles(kutyak, emberek, osszeg)
-    vlasztas = menu(menupontok)
+    valasztas = int(menu(menupontok))
