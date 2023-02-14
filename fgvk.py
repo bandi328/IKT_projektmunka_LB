@@ -43,16 +43,26 @@ def checkTel():
         checkTel()
 
 def Orokbefogadas(kutyak, emberek, osszeg):
-    allatNev = "a"
-    while allatNev in kutyak:
+    os.system('cls')
+    good = False
+    allatNev = input("Adja meg az örökbefogadni kívánt kutya nevét: ")
+
+    while not good:
         allatNev = input("Adja meg az örökbefogadni kívánt kutya nevét: ")
+        for kutya in kutyak:
+            if allatNev == kutya.nev:
+                good = True
+    
     print("Adja meg adatait!")
     emberNev = input("\tTeljes név: ")
-    checkEmail()
-    checkTel()
+    tel = checkTel()
+    email = checkEmail()
     lakcim = input("\tLakcím: ")
-    
-    FajlIras(kutyak, emberek, osszeg)
+
+    f = open("ember.txt", "a", encoding="utf-8")
+    f.write(f"{allatNev};{emberNev};{tel};{email};{lakcim}\n")
+    f.close()
+    print("A kutya felvétele sikeres volt!")
 
 
 # 2. MENUPONT
@@ -107,6 +117,7 @@ def KutyaFelvetel(kutyak):
     f = open("kutyak.txt", "a", encoding="utf-8")
     f.write(f"{neve};{szuletes};{fajta};{termet};{neme};{ivar};{statusz}\n")
     print("A kutya felvétele sikeres volt!")
+    f.close()
 
 
 # 4. MENUPONT
@@ -211,10 +222,12 @@ def FajlIras(kutyak, emberek, osszeg):
     for kutya in kutyak:
         f.write(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz}\n")
     f.close()
+
     f = open("ember.txt", "w", encoding="utf-8")
     for ember in emberek:
         f.write(f"{ember.kutyanev};{ember.nev};{ember.telefonszam};{ember.emailcim};{ember.lakcim}\n")
     f.close()
+    
     f = open("adomany.txt", "w", encoding="utf-8")
     f.write(str(osszeg))
     f.close()

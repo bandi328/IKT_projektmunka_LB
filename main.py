@@ -11,7 +11,7 @@ valasztas = menu(menupontok)
 while valasztas != 0:
     osszeg = FajlOlvasAdomany()
     if valasztas == 1:
-        Orokbefogadas(kutyak, emberek)
+        Orokbefogadas(kutyak, emberek, osszeg)
     elif valasztas == 2:
         Listamenu(kutyak)
     elif valasztas == 3:
