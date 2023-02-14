@@ -7,7 +7,7 @@ class Kutya:
         self.termet = adatok[3]
         self.nem = adatok[4]
         self.ivar = adatok[5]
-        self.statusz = adatok [6]
+        self.statusz = adatok[6]
 
     def eletkor(self, kutyak):
         eletkor = ""

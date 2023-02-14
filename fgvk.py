@@ -41,28 +41,33 @@ def checkTel():
         return tel
     else:
         checkTel()
-
-def Orokbefogadas(kutyak, emberek, osszeg):
-    os.system('cls')
+def checkKutyaNev(kutyak):
     good = False
-    allatNev = input("Adja meg az örökbefogadni kívánt kutya nevét: ")
-
     while not good:
         allatNev = input("Adja meg az örökbefogadni kívánt kutya nevét: ")
         for kutya in kutyak:
             if allatNev == kutya.nev:
                 good = True
-    
+    for i in range(len(kutyak)):
+        if kutyak[i].nev == allatNev:
+            if kutyak[i].statusz == "foglalt" or kutyak[i].statusz == "örökbeadott":
+                print("A kutya nem fogadható örökbe, válasszon másik kutyát!")
+                checkKutyaNev(kutyak)
+            else:
+                kutyak[i].statusz = "örökbeadott"
+                return allatNev
+
+def Orokbefogadas(kutyak, emberek, osszeg):
+    os.system('cls')
+    allatNev = checkKutyaNev(kutyak)
     print("Adja meg adatait!")
     emberNev = input("\tTeljes név: ")
     tel = checkTel()
     email = checkEmail()
     lakcim = input("\tLakcím: ")
-
-    f = open("ember.txt", "a", encoding="utf-8")
-    f.write(f"{allatNev};{emberNev};{tel};{email};{lakcim}\n")
-    f.close()
-    print("A kutya felvétele sikeres volt!")
+    emberek.append(Ember(f"{allatNev};{emberNev};{tel};{email};{lakcim}"))
+    FajlIras(kutyak, emberek, osszeg)
+    print("A örökbefogadás sikeres volt!")
 
 
 # 2. MENUPONT
@@ -106,7 +111,7 @@ def Listamenu(kutyak):
 # 3. MENUPONT
 def KutyaFelvetel(kutyak):
     inp = input("Szeretne új kutyát felvenni[Igen/Nem]:")
-    if inp == "Igen":
+    if inp.lower() == "igen":
         neve = input("Adja meg a kutya nevét:")
         szuletes = input("Adja meg a kutya születési évét:")
         fajta = input("Adja meg a kutya fajtáját:")
