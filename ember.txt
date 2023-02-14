@@ -3,4 +3,4 @@ Bogyó;Kiss Béla;36 70 236 589;kiss.bela@gmail.com;Győr Nagy utca 6.
 Karcsi;Horváth Réka;36 30 942 3614;horvath.reka@gmail.com;Győr Jereváni út 23.
 Lüszi;Kovács Ernő;30 70 542 7823;kovacs.erno@gmail.com;Győr Tihanyi Árpád utca 10.
 Artemisz;Balogh Sára;30 40 589 2561;balogh.sara@gmail.com;Győr Mester utca 9.
-Lüszi;asd;12312312312;asd.@sdf.fsd;sdf
+
