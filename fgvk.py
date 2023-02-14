@@ -140,7 +140,7 @@ def KutyaLefoglalas(kutyak, emberek, osszeg):
 
 
 # 5.MENUPONT
-def Kutyaadatmod(kutyak):
+def Kutyaadatmod(kutyak, emberek, osszeg):
     menupontok = ["Név", "Termet", "Ivartalanítás", "Státusz"]
     nev = input("Adja meg a kutya nevét: ")
     for kutya in kutyak:
@@ -158,8 +158,9 @@ def Kutyaadatmod(kutyak):
                     kutya.statusz = StatuszBeker()
                 valasztas = menu(menupontok)
             break
-        else:
-            print("Nem található a megadott névnek megfelelő vizsgázó!")
+    else:
+        print("Nem található a megadott névnek megfelelő kutya!")
+        FajlIras(kutyak, emberek, osszeg)
 
       # 2. választás
 def TermetBeker():
@@ -169,14 +170,25 @@ def TermetBeker():
     valasztas = "ab"
     while '0' > valasztas or '3' < valasztas:
         valasztas = input("Adja meg a típus számát [1-3]: ")
+        if lehetsegesTermet[int(valasztas)-1] == "kicsi" or lehetsegesTermet[int(valasztas)-1] == "közepes":
+            print(f"A kutya termete változtatva lett {lehetsegesTermet[int(valasztas)-1] }re")
+        elif lehetsegesTermet[int(valasztas)-1] == "nagy":
+            print(f"A kutya termete változtatva lett {lehetsegesTermet[int(valasztas)-1] }re") 
     return lehetsegesTermet[int(valasztas)-1]    
 
       # 3. választás
 def IvarBeker():
     amiszeretne = input("Ivartalaanítva lett a kutya[Igen/Nem]:")
+    while amiszeretne != "Igen" and amiszeretne != "Nem":
+        print("Kérem adja meg helyesen")
+        amiszeretne = input("Ivartalanítva lett a kutya[Igen/Nem]:")
     ivar = "ab"
     if amiszeretne == "Igen":
         ivar = "Igen"
+        print("A kutya adata módosítva lett.")
+    else:
+        ivar = "Nem"
+        print("A kutya adata módosítva lett.")
     return ivar
 
       # 4. választás
@@ -185,9 +197,11 @@ def StatuszBeker():
     for i in range(len(lehetsegesStatusz)):
         print(f"{i+1}. {lehetsegesStatusz[i]}")
     valasztas = "ab"
-    while '0' > valasztas or '3' < valasztas:
+    while '0' >= valasztas or '3' < valasztas:
         valasztas = input("Adja meg a típus számát [1-3]: ")
+    print(f"A kutya státusza változtatva lett {lehetsegesStatusz[int(valasztas)-1]}-ra")
     return lehetsegesStatusz[int(valasztas)-1]  
+
 
 # 6. MENUPONT
 def Adomanykezeles(kutyak, emberek, osszeg):
@@ -235,4 +249,10 @@ def FajlIras(kutyak, emberek, osszeg):
     
     f = open("adomany.txt", "w", encoding="utf-8")
     f.write(str(osszeg))
+    f.close()
+
+def KutyaEvIras(kutyak):
+    f = open("kutyak.txt", "w", encoding="utf-8")
+    for kutya in kutyak:
+        f.write(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz};{'kölyök' if kutya.szuletes >= 2020 else 'felnőtt'}\n")
     f.close()

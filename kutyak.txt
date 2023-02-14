@@ -1,20 +1,21 @@
-Dunya;2018;németjuhász;nagy;lány;igen;örökbeadott
-Lüszi;2021;kaukázusi juhászkutya;nagy;lány;igen;örökbeadott
-Honey;2020;pitbull;közepes;fiú;igen;lakos
-Amy;2020;rottweiler;nagy;lány;igen;lakos
-Beni;2012;keverék;kicsi;fiú;igen;lakos
-Bianka;2011;keverék;közepes;lány;igen;lakos
-Artúr;2017;tacskó;kicsi;fiú;igen;lakos
-Gino;2011;juhászkutya;nagy;lány;igen;lakos
-Lángos;2020;pitbull;közepes;fiú;igen;foglalt
-Cserkés;2020;keverék;nagy;fiú;igen;lakos
-Dorisz;2015;pitbull;nagy;lány;igen;lakos
-Cheester;2018;staffordshire;közepes;fiú;igen;lakos
-Artemisz;2020;kaukázusi juhászkutya;nagy;lány;igen;örökbeadott
-Tyson;2022;husky;nagy;fiú;nem;foglalt
-Nudli;2017;tacskó;közepes;fiú;igen;foglalt
-Ördög;2020;mudi;közepes;lány;igen;foglalt
-Bodza;2018;husky;nagy;lány;igen;örökbeadott
-Puszedli;2022;keverék;közepes;lány;igen;lakos
-Csibész;2016;mudi;közepes;fiú;nem;foglalt
-Trixy;2017;németjuhász;nagy;lány;igen;örökbeadott
+Dunya;2018;németjuhász;nagy;lány;igen;lakos;felnőtt
+Lüszi;2021;kaukázusi;juhászkutya;nagy;lány;igen;kölyök
+Honey;2020;pitbull;közepes;fiú;igen;lakos;kölyök
+Amy;2020;rottweiler;nagy;lány;igen;lakos;kölyök
+Beni;2012;keverék;kicsi;fiú;igen;lakos;felnőtt
+Bianka;2011;keverék;közepes;lány;igen;lakos;felnőtt
+Artúr;2017;tacskó;kicsi;fiú;igen;lakos;felnőtt
+Gino;2011;juhászkutya;nagy;lány;igen;lakos;felnőtt
+Lángos;2020;pitbull;közepes;fiú;igen;foglalt;kölyök
+Cserkés;2020;keverék;nagy;fiú;igen;lakos;kölyök
+Dorisz;2015;pitbull;nagy;lány;igen;lakos;felnőtt
+Cheester;2018;staffordshire;közepes;fiú;igen;lakos;felnőtt
+Artemisz;2020;kaukázusi;juhászkutya;nagy;lány;igen;kölyök
+Tyson;2022;husky;nagy;fiú;nem;foglalt;kölyök
+Nudli;2017;tacskó;közepes;fiú;igen;foglalt;felnőtt
+Ördög;2020;mudi;közepes;lány;igen;;kölyök
+Bodza;2018;husky;nagy;lány;igen;örökbeadott;felnőtt
+Puszedli;2022;keverék;közepes;lány;igen;lakos;kölyök
+Csibész;2016;mudi;közepes;fiú;nem;foglalt;felnőtt
+Trixy;2017;németjuhász;nagy;lány;igen;lakos;felnőtt
+Podlipnik;2006;kaukázusi juhászkutya;kicsi;fiú;igen;lakos;felnőtt
