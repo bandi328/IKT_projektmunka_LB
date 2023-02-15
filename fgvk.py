@@ -3,6 +3,7 @@ from Kutya import *
 from Ember import *
 import os
 import re
+import datetime
 
 # FÁJLOLVASÁSOK
 def FajlOlvasKutya(kutyak):
@@ -72,7 +73,7 @@ def Orokbefogadas(kutyak, emberek, osszeg):
 
 # 2. MENUPONT
 def Listamenu(kutyak):
-    menupontok2 = ["Fajta szerint", "Születési év szerint", "Termet szerint", "Nem szerint", "Ivartalanitás szerint", "Státusz szerint"]
+    menupontok2 = ["Fajta szerint", "Születési év szerint", "Termet szerint", "Nem szerint", "Ivartalanitás szerint", "Státusz szerint", ]
     valasztas = menu(menupontok2)
     while valasztas != 0:
         if valasztas == 1:
@@ -109,7 +110,7 @@ def Listamenu(kutyak):
 
 
 # 3. MENUPONT
-def KutyaFelvetel(kutyak):
+def KutyaFelvetel(kutyak, emberek, osszeg):
     inp = input("Szeretne új kutyát felvenni[Igen/Nem]:")
     if inp.lower() == "igen":
         neve = input("Adja meg a kutya nevét:")
@@ -119,15 +120,18 @@ def KutyaFelvetel(kutyak):
         neme = input("Adja meg a kutya nemét:")
         ivar = input("Ivartalanított a kutya?[igen/nem]:")
         statusz = input("Mi a státusza?[lakos/fogalalt/örökbeadott]")
-    f = open("kutyak.txt", "a", encoding="utf-8")
-    f.write(f"{neve};{szuletes};{fajta};{termet};{neme};{ivar};{statusz}\n")
+    kutyak.append(Kutya(f"{neve};{szuletes};{fajta};{termet};{neme};{ivar};{statusz}"))
+    FajlIras(kutyak, emberek, osszeg)
+    KutyaEvIras(kutyak)
     print("A kutya felvétele sikeres volt!")
-    f.close()
 
 
 # 4. MENUPONT
 def KutyaLefoglalas(kutyak, emberek, osszeg):
     inp = input("Szeretne lefoglalni egy kutyát? [Igen/Nem]: ")
+    while inp.lower() != "igen" or inp.lower() != "nem":
+        print("Kérem adja meg helyesen!")
+        inp = input("Szeretne lefoglalni egy kutyát? [Igen/Nem]: ")
     if inp == "Igen":
         kutyanev = input("Adja meg a kutya nevét:")
         for kutya in kutyak:
@@ -143,24 +147,27 @@ def KutyaLefoglalas(kutyak, emberek, osszeg):
 def Kutyaadatmod(kutyak, emberek, osszeg):
     menupontok = ["Név", "Termet", "Ivartalanítás", "Státusz"]
     nev = input("Adja meg a kutya nevét: ")
+    nevek = []
     for kutya in kutyak:
-        if kutya.nev == nev:
-            print("Válasszon módosítandó adatot:")
-            valasztas = menu(menupontok)
-            while valasztas != 0:
-                if valasztas == 1:
-                    kutya.nev = input("Adja meg az új nevet: ")
-                elif valasztas == 2:
-                    kutya.termet = TermetBeker()
-                elif valasztas == 3:
-                    kutya.ivar = IvarBeker()
-                elif valasztas == 4:
-                    kutya.statusz = StatuszBeker()
-                valasztas = menu(menupontok)
-            break
-    else:
+        nevek.append(kutya.nev)
+    while nev not in nevek:
         print("Nem található a megadott névnek megfelelő kutya!")
-        FajlIras(kutyak, emberek, osszeg)
+        nev = input("Adja meg a kutya nevét: ")
+        
+    print("Válasszon módosítandó adatot:")
+    valasztas = menu(menupontok)
+    while valasztas != 0:
+        if valasztas == 1:
+            kutya.nev = input("Adja meg az új nevet: ")
+        elif valasztas == 2:
+            kutya.termet = TermetBeker()
+        elif valasztas == 3:
+            kutya.ivar = IvarBeker()
+        elif valasztas == 4:
+            kutya.statusz = StatuszBeker()
+        valasztas = menu(menupontok)
+        break
+    FajlIras(kutyak, emberek, osszeg)
 
       # 2. választás
 def TermetBeker():
@@ -254,5 +261,5 @@ def FajlIras(kutyak, emberek, osszeg):
 def KutyaEvIras(kutyak):
     f = open("kutyak.txt", "w", encoding="utf-8")
     for kutya in kutyak:
-        f.write(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz};{'kölyök' if kutya.szuletes >= 2020 else 'felnőtt'}\n")
+        f.write(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz};{'kölyök' if kutya.szuletes >= 2020 else 'felnőtt'};{int(datetime.datetime.today().strftime('%Y'))-kutya.szuletes}\n")
     f.close()

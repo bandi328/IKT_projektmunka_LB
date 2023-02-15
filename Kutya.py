@@ -17,3 +17,8 @@ class Kutya:
             else:
                 eletkor = "felnőtt"
         return eletkor
+    
+    # def HanyEves(self, kutyak):
+    #     eves = ""
+
+
