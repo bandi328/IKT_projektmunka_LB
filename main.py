@@ -7,7 +7,6 @@ FajlOlvasKutya(kutyak)
 KutyaEvIras(kutyak)
 FajlOlvasEmber(emberek)
 
-
 menupontok = ["Örökbefogadás", "Menhelyi kutyák kilistázása", "Új kutya felvétele", "Kutya lefoglalása", "Kutya adatai módosítása", "Adományok kezelése"]
 
 valasztas = menu(menupontok)

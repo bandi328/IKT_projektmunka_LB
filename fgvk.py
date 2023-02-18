@@ -1,3 +1,5 @@
+import time
+import datetime
 from menu import menu
 from Kutya import *
 from Ember import *
@@ -81,44 +83,71 @@ def Listamenu(kutyak):
             for kutya in kutyak:
                 if kutya.fajta == fajta:
                     print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
+            time.sleep(5)
+            x = input("Nyomja meg az ENTER-t.")
+            if x == "\n":
+                return
         elif valasztas == 2:
             szulinap = int(input("Adja meg a kutya születési évét:"))
             print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
             for kutya in kutyak:
                 if kutya.szuletes == szulinap:
                     print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
+            time.sleep(5)
+            x = input("Nyomja meg az ENTER-t.")
+            if x == "\n":
+                valasztas = 0
+                return valasztas
         elif valasztas == 3:
             termet = input("Adja meg a kutya termetét[nagy/közepes/kicsi]:")
             print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
             for kutya in kutyak:
                 if kutya.termet == termet:
                     print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
+            time.sleep(5)
+            x = input("Nyomja meg az ENTER-t.")
+            if x == "\n":
+                valasztas = menu(menupontok2)
         elif valasztas == 4:
             nem = input("Adja meg a kutya nemét[lány/fiú]:")
             print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
             for kutya in kutyak:
                 if kutya.nem == nem:
                     print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
+            time.sleep(5)
+            x = input("Nyomja meg az ENTER-t.")
+            if x == "\n":
+                valasztas = menu(menupontok2)
         elif valasztas == 5:
             ivar = input("Adja meg a kutya ivartalanítva van-e[Igen/Nem]:")
             print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
             for kutya in kutyak:
                 if kutya.ivar == ivar:
                     print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")   
-        valasztas = menu(menupontok2)
+            time.sleep(5)
+            x = input("Nyomja meg az ENTER-t.")
+            if x == "\n":
+                valasztas = menu(menupontok2)
 
 
 # 3. MENUPONT
 def KutyaFelvetel(kutyak):
-    inp = input("Szeretne új kutyát felvenni[Igen/Nem]:")
+    ma = datetime.date.today()
+    ev = ma.year
+    inp = input("Szeretne új kutyát felvenni? [Igen/Nem]: ")
     if inp.lower() == "igen":
-        neve = input("Adja meg a kutya nevét:")
-        szuletes = input("Adja meg a kutya születési évét:")
-        fajta = input("Adja meg a kutya fajtáját:")
-        termet = input("Adja meg a kuya termetét:")
-        neme = input("Adja meg a kutya nemét:")
-        ivar = input("Ivartalanított a kutya?[igen/nem]:")
-        statusz = input("Mi a státusza?[lakos/fogalalt/örökbeadott]")
+        neve = input(f"\tAdja meg a kutya nevét: ")
+        szuletes = (input(f"\tAdja meg a kutya születési évét: "))
+        # while type(szuletes) != "int" or int(ev)-int(szuletes) >= 15:
+        while type(szuletes) == int and int(ev)-int(szuletes) >= 15:
+            szuletes = input(f"\tAz évszám helytelen. Adja meg a kutya születési évét: ")
+        fajta = input(f"\tAdja meg a kutya fajtáját: ")
+        termet = input(f"\tAdja meg a kuya termetét: ")
+        neme = input(f"\tAdja meg a kutya nemét: ")
+        ivar = input(f"\tIvartalanított a kutya? [igen/nem]:")
+        statusz = input(f"\tMi a státusza? [lakos/foglalt/örökbeadott]: ")
+    else:
+        return
     f = open("kutyak.txt", "a", encoding="utf-8")
     f.write(f"{neve};{szuletes};{fajta};{termet};{neme};{ivar};{statusz}\n")
     print("A kutya felvétele sikeres volt!")

@@ -1,5 +1,5 @@
 class Ember:
-    def __init__(self,sor):
+    def __init__(self, sor):
         adatok = sor.strip().split(";")
         self.kutyanev = adatok[0]
         self.nev = adatok[1]
