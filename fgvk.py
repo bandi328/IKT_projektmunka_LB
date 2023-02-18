@@ -84,9 +84,8 @@ def Listamenu(kutyak):
                 if kutya.fajta == fajta:
                     print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
             time.sleep(5)
-            x = input("Nyomja meg az ENTER-t.")
-            if x == "\n":
-                return
+            x = input("Továbblépéshez nyomja meg az ENTER-t.")
+            valasztas = menu(menupontok2)
         elif valasztas == 2:
             szulinap = int(input("Adja meg a kutya születési évét:"))
             print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
@@ -94,10 +93,8 @@ def Listamenu(kutyak):
                 if kutya.szuletes == szulinap:
                     print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
             time.sleep(5)
-            x = input("Nyomja meg az ENTER-t.")
-            if x == "\n":
-                valasztas = 0
-                return valasztas
+            x = input("Továbblépéshez nyomja meg az ENTER-t.")
+            valasztas = menu(menupontok2)
         elif valasztas == 3:
             termet = input("Adja meg a kutya termetét[nagy/közepes/kicsi]:")
             print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
@@ -105,9 +102,8 @@ def Listamenu(kutyak):
                 if kutya.termet == termet:
                     print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
             time.sleep(5)
-            x = input("Nyomja meg az ENTER-t.")
-            if x == "\n":
-                valasztas = menu(menupontok2)
+            x = input("Továbblépéshez nyomja meg az ENTER-t.")
+            valasztas = menu(menupontok2)
         elif valasztas == 4:
             nem = input("Adja meg a kutya nemét[lány/fiú]:")
             print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
@@ -115,9 +111,8 @@ def Listamenu(kutyak):
                 if kutya.nem == nem:
                     print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
             time.sleep(5)
-            x = input("Nyomja meg az ENTER-t.")
-            if x == "\n":
-                valasztas = menu(menupontok2)
+            x = input("Továbblépéshez nyomja meg az ENTER-t.")
+            valasztas = menu(menupontok2)
         elif valasztas == 5:
             ivar = input("Adja meg a kutya ivartalanítva van-e[Igen/Nem]:")
             print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
@@ -125,9 +120,8 @@ def Listamenu(kutyak):
                 if kutya.ivar == ivar:
                     print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")   
             time.sleep(5)
-            x = input("Nyomja meg az ENTER-t.")
-            if x == "\n":
-                valasztas = menu(menupontok2)
+            x = input("Továbblépéshez nyomja meg az ENTER-t.")
+            valasztas = menu(menupontok2)
 
 
 # 3. MENUPONT
