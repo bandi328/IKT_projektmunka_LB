@@ -17,7 +17,7 @@ while valasztas != 0:
     elif valasztas == 2:
         Listamenu(kutyak)
     elif valasztas == 3:
-        KutyaFelvetel(kutyak)
+        KutyaFelvetel(kutyak, emberek, osszeg)
     elif valasztas == 4:   
         KutyaLefoglalas(kutyak, emberek, osszeg)
     elif valasztas == 5:
