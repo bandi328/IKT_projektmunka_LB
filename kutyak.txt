@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Dunya;2018;németjuhász;nagy;lány;igen;lakos;felnőtt;5
 Lüszi;2021;kaukázusi;juhászkutya;nagy;lány;igen;kölyök;2
 Honey;2020;pitbull;közepes;fiú;igen;lakos;kölyök;3
@@ -20,3 +21,39 @@ Csibész;2016;mudi;közepes;fiú;nem;foglalt;felnőtt;7
 Trixy;2017;németjuhász;nagy;lány;igen;lakos;felnőtt;6
 Podlipnik;2006;kaukázusi juhászkutya;kicsi;fiú;igen;lakos;felnőtt;17
 asd;2020;asd;asd;asd;asd;asd;kölyök;3
+=======
+Málna;2019;agár;nagy;lány;nem;foglalt
+Szeder;2016;terrier;közepes;fiú;igen;lakos
+Gombóc;2020;malamut;közepes;fiú;igen;lakos
+Bruno;2022;akita;kicsi;lány;igen;lakos
+Igor;2014;bulldog;nagy;lány;nem;örökbeadott
+Picike;2018;spániel;kicsi;fiú;igen;lakos
+Eper;2019;masztiff;nagy;fiú;igen;lakos
+Répa;2023;spániel;kicsi;lány;igen;lakos
+Bogyó;2020;szetter;közepes;fiú;igen;örökbeadott
+Bundás;2010;labrador;nagy;fiú;nem;lakos
+Szuszu;2016;csivava;kicsi;fiú;igen;foglalt
+Karcsi;2020;pitbull;közepes;fiú;igen;örökbeadott
+Don;2014;keverék;nagy;fiú;igen;lakos
+Dunya;2018;németjuhász;nagy;lány;igen;lakos;felnőtt
+Lüszi;2021;kaukázusi juhászkutya;nagy;lány;igen;örökbeadott;kölyök
+Honey;2020;pitbull;közepes;fiú;igen;lakos;kölyök
+Amy;2020;rottweiler;nagy;lány;igen;lakos;kölyök
+Beni;2012;keverék;kicsi;fiú;igen;lakos;felnőtt
+Bianka;2011;keverék;közepes;lány;igen;lakos;felnőtt
+Artúr;2017;tacskó;kicsi;fiú;igen;lakos;felnőtt
+Gino;2011;juhászkutya;nagy;lány;igen;lakos;felnőtt
+Lángos;2020;pitbull;közepes;fiú;igen;foglalt;kölyök
+Cserkés;2020;keverék;nagy;fiú;igen;lakos;kölyök
+Dorisz;2015;pitbull;nagy;lány;igen;lakos;felnőtt
+Cheester;2018;staffordshire;közepes;fiú;igen;lakos;felnőtt
+Artemisz;2020;kaukázusi juhászkutya;nagy;lány;igen;örökbeadott;kölyök
+Tyson;2022;husky;nagy;fiú;nem;foglalt;kölyök
+Nudli;2017;tacskó;közepes;fiú;igen;foglalt;felnőtt
+Ördög;2020;mudi;közepes;lány;igen;foglalt;kölyök
+Bodza;2018;husky;nagy;lány;igen;foglalt;felnőtt
+Puszedli;2022;keverék;közepes;lány;igen;lakos;kölyök
+Csibész;2016;mudi;közepes;fiú;nem;foglalt;felnőtt
+Trixy;2017;németjuhász;nagy;lány;igen;lakos;felnőtt
+Podlipnik;2006;kaukázusi juhászkutya;kicsi;fiú;igen;lakos;felnőtt
+>>>>>>> f479e77a3e62a3d1b6a51c684479ee4d28cddd5c
