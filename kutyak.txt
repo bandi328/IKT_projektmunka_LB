@@ -31,4 +31,8 @@ Bogyó;2020;szetter;közepes;fiú;igen;örökbeadott;kölyök;3
 Bundás;2010;labrador;nagy;fiú;nem;lakos;felnőtt;13
 Szuszu;2016;csivava;kicsi;fiú;igen;foglalt;felnőtt;7
 Karcsi;2020;pitbull;közepes;fiú;igen;örökbeadott;kölyök;3
+<<<<<<< HEAD
 Dunyuska;2014;keverék;kicsi;fiú;nem;lakos;felnőtt;9
+=======
+Don;2014;keverék;nagy;fiú;igen;lakos;felnőtt;9
+>>>>>>> 1d466cd9607fa44ab531dab873b0d1439138a538

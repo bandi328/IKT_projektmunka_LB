@@ -124,6 +124,15 @@ def Listamenu(kutyak):
             time.sleep(5)
             input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
             valasztas = menu(menupontok2)
+        elif valasztas == 5:
+            ivar = input("Adja meg a kutya ivartalanítva van-e[Igen/Nem]:")
+            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            for kutya in kutyak:
+                if kutya.ivar == ivar:
+                    print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")   
+            time.sleep(5)
+            input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
+            valasztas = menu(menupontok2)
 
 
 # 3. MENUPONT
@@ -212,7 +221,7 @@ def KutyaLefoglalas(kutyak, emberek, osszeg):
         print("Nem változtatott meg egy státuszt sem.")
         time.sleep(2)
     FajlIras(kutyak, emberek, osszeg)
-
+    
 
 # 5.MENUPONT
 def Kutyaadatmod(kutyak, emberek, osszeg):
@@ -238,6 +247,7 @@ def Kutyaadatmod(kutyak, emberek, osszeg):
         valasztas = menu(menupontok)
         break
     FajlIras(kutyak, emberek, osszeg)
+    valasztas = menu(menupontok)
 
       # 2. választás
 def TermetBeker():
@@ -312,6 +322,8 @@ def Adomanykezeles(kutyak, emberek, osszeg):
             print(f"Az új egyenleg: {szam}")
     else:
         print("Az egyenleg nem változott!")
+    osszeg = szam
+    FajlIras(kutyak, emberek, osszeg)
 
 
 
