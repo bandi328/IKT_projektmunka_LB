@@ -124,15 +124,17 @@ def Listamenu(kutyak):
             time.sleep(5)
             input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
             valasztas = menu(menupontok2)
-        elif valasztas == 5:
-            ivar = input("Adja meg a kutya ivartalanítva van-e[Igen/Nem]:")
+        elif valasztas == 6:
+            statusz = input("Adja meg a kutya státuszát[lakos/foglalt/örökbeadott]:")
             print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
             for kutya in kutyak:
-                if kutya.ivar == ivar:
+                if kutya.statusz == statusz:
                     print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")   
             time.sleep(5)
             input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
             valasztas = menu(menupontok2)
+
+        # INPUT CHEK 6. FAJTA LISTAZASHOZ!!!!!!!!!!
 
 
 # 3. MENUPONT
@@ -237,7 +239,7 @@ def Kutyaadatmod(kutyak, emberek, osszeg):
     valasztas = menu(menupontok)
     while valasztas != 0:
         if valasztas == 1:
-            kutya.nev = input("Adja meg az új nevet: ")
+            kutya.nev = KutyanevBeker()
         elif valasztas == 2:
             kutya.termet = TermetBeker()
         elif valasztas == 3:
@@ -249,8 +251,15 @@ def Kutyaadatmod(kutyak, emberek, osszeg):
     FajlIras(kutyak, emberek, osszeg)
     valasztas = menu(menupontok)
 
+
+     # 1. választás
+def KutyanevBeker(kutya):
+    ujNev = input("Adja meg az új nevet: ")
+    kutya.nev = ujNev
+    return ujNev
+
       # 2. választás
-def TermetBeker():
+def TermetBeker(kutya):
     lehetsegesTermet = ['kicsi', 'közepes', 'nagy']
     for i in range(len(lehetsegesTermet)):
         print(f"{i+1}. {lehetsegesTermet[i]}")
@@ -262,10 +271,11 @@ def TermetBeker():
         elif lehetsegesTermet[int(valasztas)-1] == "nagy":
             print(f"A kutya termete változtatva lett {lehetsegesTermet[int(valasztas)-1]}-ra")
     time.sleep(2)
+    kutya.termet = lehetsegesTermet[int(valasztas)-1]
     return lehetsegesTermet[int(valasztas)-1]
 
       # 3. választás
-def IvarBeker():
+def IvarBeker(kutya):
     amiszeretne = input("Ivartalanítva lett a kutya? [Igen/Nem] ")
     while amiszeretne.lower() != "igen" and amiszeretne.lower() != "nem":
         print("Kérem adja meg helyesen")
@@ -278,6 +288,7 @@ def IvarBeker():
         ivar = "nem"
         print("A kutya adata módosítva lett.")
     time.sleep(2)
+    kutya.ivar = amiszeretne.lower
     return ivar
 
       # 4. választás
