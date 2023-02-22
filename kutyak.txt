@@ -1,5 +1,5 @@
-Dunya;2018;németjuhász;nagy;lány;igen;lakos;felnőtt;5
-Lüszi;2021;kaukázusi;juhászkutya;nagy;lány;igen;kölyök;2
+Dunya;2018;németjuhász;nagy;lány;igen;foglalt;felnőtt;5
+Lüszi;2021;kaukázusi juhászkutya;nagy;lány;igen;örökbeadott;kölyök;2
 Honey;2020;pitbull;közepes;fiú;igen;lakos;kölyök;3
 Amy;2020;rottweiler;nagy;lány;igen;lakos;kölyök;3
 Beni;2012;keverék;kicsi;fiú;igen;lakos;felnőtt;11
@@ -31,4 +31,8 @@ Bogyó;2020;szetter;közepes;fiú;igen;örökbeadott;kölyök;3
 Bundás;2010;labrador;nagy;fiú;nem;lakos;felnőtt;13
 Szuszu;2016;csivava;kicsi;fiú;igen;foglalt;felnőtt;7
 Karcsi;2020;pitbull;közepes;fiú;igen;örökbeadott;kölyök;3
+<<<<<<< HEAD
+Dunyuska;2014;keverék;kicsi;fiú;nem;lakos;felnőtt;9
+=======
 Don;2014;keverék;nagy;fiú;igen;lakos;felnőtt;9
+>>>>>>> 1d466cd9607fa44ab531dab873b0d1439138a538
