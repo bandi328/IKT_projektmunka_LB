@@ -4,7 +4,8 @@ from Kutya import *
 kutyak = []
 emberek = []
 FajlOlvasKutya(kutyak)
-KutyaEvIras(kutyak)
+KutyaAzonositoGeneral(kutyak)
+# KutyaEvIras(kutyak)
 FajlOlvasEmber(emberek)
 
 menupontok = ["Örökbefogadás", "Menhelyi kutyák kilistázása", "Új kutya felvétele", "Kutya lefoglalása", "Kutya adatai módosítása", "Adományok kezelése"]
@@ -25,3 +26,4 @@ while valasztas != 0:
     elif valasztas == 6:
         Adomanykezeles(kutyak, emberek, osszeg)
     valasztas = int(menu(menupontok))
+

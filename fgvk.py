@@ -6,6 +6,7 @@ import datetime
 import os
 import re
 import datetime
+import random
 
 # FÁJLOLVASÁSOK
 def FajlOlvasKutya(kutyak):
@@ -160,9 +161,9 @@ def KutyaFelvetel(kutyak, emberek, osszeg):
                 szuletesBeker = input(f"\tAz évszám helytelen. Adja meg a kutya születési évét: ")
         fajta = input(f"\tAdja meg a kutya fajtáját: ")
         ok = False
-        termet = input(f"\tAdja meg a kuya termetét: ")
+        termet = input(f"\tAdja meg a kuya termetét[kicsi/közepes/nagy]: ")
         while ok == False:
-            if termet in valosTermet:
+            if termet.lower() in valosTermet:
                 ok = True
             else:
                 termet = input(f"\tAz termet helytelen. Adja meg a kuya termetét: ")
@@ -185,7 +186,7 @@ def KutyaFelvetel(kutyak, emberek, osszeg):
         ok = False
         statusz = input(f"\tMi a státusza? [lakos/foglalt/örökbeadott]: ")
         while ok == False:
-            if statusz in valosStatusz:
+            if statusz.lower() in valosStatusz:
                 ok = True
             else:
                 statusz = input(f"\tRossz státuszt adott meg. Mi a státusza? [lakos/foglalt/örökbeadott]: ")
@@ -239,22 +240,22 @@ def Kutyaadatmod(kutyak, emberek, osszeg):
     valasztas = menu(menupontok)
     while valasztas != 0:
         if valasztas == 1:
-            kutya.nev = KutyanevBeker()
+            kutya.nev = KutyanevBeker(kutya)
         elif valasztas == 2:
-            kutya.termet = TermetBeker()
+            kutya.termet = TermetBeker(kutya)
         elif valasztas == 3:
-            kutya.ivar = IvarBeker()
+            kutya.ivar = IvarBeker(kutya)
         elif valasztas == 4:
-            kutya.statusz = StatuszBeker()
+            kutya.statusz = StatuszBeker(kutya)
         valasztas = menu(menupontok)
-        break
-    FajlIras(kutyak, emberek, osszeg)
+        FajlIras(kutyak, emberek, osszeg)
+        break    
     valasztas = menu(menupontok)
 
 
      # 1. választás
 def KutyanevBeker(kutya):
-    ujNev = input("Adja meg az új nevet: ")
+    ujNev = input("Adja meg az új nevét: ")
     kutya.nev = ujNev
     return ujNev
 
@@ -358,5 +359,15 @@ def FajlIras(kutyak, emberek, osszeg):
 def KutyaEvIras(kutyak):
     f = open("kutyak.txt", "w", encoding="utf-8")
     for kutya in kutyak:
-        f.write(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz};{'kölyök' if kutya.szuletes >= 2020 else 'felnőtt'};{int(datetime.datetime.today().strftime('%Y'))-kutya.szuletes}\n")
+        f.write(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz};{'kölyök' if kutya.szuletes >= 2020 else 'felnőtt'};{int(datetime.datetime.today().strftime('%Y'))-kutya.szuletes}")
     f.close()
+
+#KutyaAzonosito
+def KutyaAzonositoGeneral(kutyak):
+    azonosito = ""
+    for i in range(len(kutyak)+1):
+        azonosito = i
+        f = open("kutyak.txt", "w", encoding="utf-8")
+        for kutya in kutyak:
+            f.write(f";{KutyaAzonositoGeneral(kutyak)}\n")
+        f.close()
