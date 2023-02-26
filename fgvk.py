@@ -5,7 +5,6 @@ import time
 import datetime
 import os
 import re
-import datetime
 import random
 
 # FÁJLOLVASÁSOK
@@ -89,11 +88,11 @@ def Listamenu(kutyak):
             input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
             valasztas = menu(menupontok2)
         elif valasztas == 2:
-            szulinap = int(input("Adja meg a kutya születési évét: "))
+            szulinap = input("Adja meg a kutya születési évét: ")
             print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
             # if szulinap.isnumeric()
             for kutya in kutyak:
-                if kutya.szuletes == szulinap:
+                if kutya.szuletes == int(szulinap):
                     print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
             time.sleep(5)
             input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
@@ -161,7 +160,7 @@ def KutyaFelvetel(kutyak, emberek, osszeg):
                 szuletesBeker = input(f"\tAz évszám helytelen. Adja meg a kutya születési évét: ")
         fajta = input(f"\tAdja meg a kutya fajtáját: ")
         ok = False
-        termet = input(f"\tAdja meg a kuya termetét[kicsi/közepes/nagy]: ")
+        termet = input(f"\tAdja meg a kuya termetét [kicsi/közepes/nagy]: ")
         while ok == False:
             if termet.lower() in valosTermet:
                 ok = True
@@ -308,30 +307,32 @@ def StatuszBeker():
 # 6. MENUPONT
 def Adomanykezeles(kutyak, emberek, osszeg):
     szam = int(osszeg)
-    print(f"Jelenlegi egyenleg: {szam}")
+    print(f"Jelenlegi egyenleg: {szam} Ft")
     kerdes = input("Szeretné kezelni az adományokat? (Igen/Nem): ")
     while kerdes.lower() != "igen" and kerdes.lower() != "nem":
         print("Kérem válasszon a lehetőségek közül!")
         kerdes = input("Szeretné kezelni az adományokat? (Igen/Nem): ")
     if kerdes.lower() == "igen":
-        inp = input("Mit szeretne tenni? [+(adomány hozzá adása)/-(költés feljegyzése)]: ")
+        inp = input("Mit szeretne tenni? [+(adomány hozzáadása)/-(költés feljegyzése)]: ")
         while inp != "+" and inp != "-":
             print("Kérem válasszon a lehetőségek közül!")
             inp = input("Mit szeretne tenni? [+(adomány hozzá adása)/-(költés feljegyzése)]: ")
         if inp == "+":
-            koltseg = input("Adja meg a költség összegét: ")
+            koltseg = input("Adja meg az adomány összegét: ")
             while koltseg.isnumeric() == False:
                 print("Kérem számot adjon meg!")
                 koltseg = input("Adja meg a költség összegét: ")
             szam += int(koltseg)
-            print(f"Az új egyenleg: {szam}")
+            print(f"Az új egyenleg: {szam} Ft")
+            time.sleep(2)
         else:
             koltseg = input("Adja meg a költség összegét: ")
             while koltseg.isnumeric() == False:
                 print("Kérem számot adjon meg!")
                 koltseg = input("Adja meg a költség összegét: ")
             szam -= int(koltseg)
-            print(f"Az új egyenleg: {szam}")
+            print(f"Az új egyenleg: {szam} Ft")
+            time.sleep(2)
     else:
         print("Az egyenleg nem változott!")
     osszeg = szam
@@ -359,7 +360,7 @@ def FajlIras(kutyak, emberek, osszeg):
 def KutyaEvIras(kutyak):
     f = open("kutyak.txt", "w", encoding="utf-8")
     for kutya in kutyak:
-        f.write(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz};{'kölyök' if kutya.szuletes >= 2020 else 'felnőtt'};{int(datetime.datetime.today().strftime('%Y'))-kutya.szuletes}")
+        f.write(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz};{'kölyök' if kutya.szuletes >= 2020 else 'felnőtt'};{int(datetime.datetime.today().strftime('%Y'))-kutya.szuletes}\n")
     f.close()
 
 #KutyaAzonosito
