@@ -4,6 +4,7 @@ from Kutya import *
 kutyak = []
 emberek = []
 FajlOlvasKutya(kutyak)
+# KutyaAzonositoGeneral(kutyak)
 KutyaEvIras(kutyak)
 FajlOlvasEmber(emberek)
 
@@ -25,3 +26,4 @@ while valasztas != 0:
     elif valasztas == 6:
         Adomanykezeles(kutyak, emberek, osszeg)
     valasztas = int(menu(menupontok))
+
