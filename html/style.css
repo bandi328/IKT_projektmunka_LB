@@ -9,6 +9,7 @@
     font-size: 1.9rem;
     padding: 0.5rem;
 }
+
 .image_div{
     width: 100%;
     height: 100%;
@@ -18,6 +19,7 @@
     height: 100%;
     border-radius: 50%;
 }
+
 .bio p{
     padding-left: 1rem;
     font-size: 1.9rem;
@@ -30,4 +32,29 @@
 }
 .bio a:hover{
     color: rgb(73, 162, 184);
+}
+
+@media only screen and (max-width: 992px) {
+    .image{
+        width: 50%;
+        height: 50%;
+    }
+    .image_div{
+        margin: 0px auto;
+        text-align: center;
+    }
+
+}
+@media only screen and (max-width: 500px) {
+    .image{
+        width: 70%;
+        height: 70%;
+    }
+    .bio p{
+        font-size: 1.4rem;
+    }
+    .bio a{
+        padding-left: 1rem;
+        font-size: 1rem;
+    }
 }

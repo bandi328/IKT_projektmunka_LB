@@ -321,7 +321,7 @@ def Adomanykezeles(kutyak, emberek, osszeg):
             koltseg = input("Adja meg az adomány összegét: ")
             while koltseg.isnumeric() == False:
                 print("Kérem számot adjon meg!")
-                koltseg = input("Adja meg a költség összegét: ")
+                koltseg = input("Adja meg az adomány összegét: ")
             szam += int(koltseg)
             print(f"Az új egyenleg: {szam} Ft")
             time.sleep(2)
@@ -351,11 +351,13 @@ def FajlIras(kutyak, emberek, osszeg):
     for ember in emberek:
         f.write(f"{ember.kutyanev};{ember.nev};{ember.telefonszam};{ember.emailcim};{ember.lakcim}\n")
     f.close()
-    
+
     f = open("adomany.txt", "w", encoding="utf-8")
     f.write(str(osszeg))
     f.close()
     KutyaEvIras(kutyak)
+    KutyaAzonositoGeneral(kutyak)
+
 
 def KutyaEvIras(kutyak):
     f = open("kutyak.txt", "w", encoding="utf-8")
@@ -363,12 +365,10 @@ def KutyaEvIras(kutyak):
         f.write(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz};{'kölyök' if kutya.szuletes >= 2020 else 'felnőtt'};{int(datetime.datetime.today().strftime('%Y'))-kutya.szuletes}\n")
     f.close()
 
+
 #KutyaAzonosito
 def KutyaAzonositoGeneral(kutyak):
-    azonosito = ""
-    for i in range(len(kutyak)+1):
-        azonosito = i
-        f = open("kutyak.txt", "w", encoding="utf-8")
-        for kutya in kutyak:
-            f.write(f";{KutyaAzonositoGeneral(kutyak)}\n")
-        f.close()
+    f = open("kutyak.txt", "w", encoding="utf-8")
+    for i in range(len(kutyak)):
+        f.write(f"{kutyak[i].nev};{kutyak[i].szuletes};{kutyak[i].fajta};{kutyak[i].termet};{kutyak[i].nem};{kutyak[i].ivar};{kutyak[i].statusz};{'kölyök' if kutyak[i].szuletes >= 2020 else 'felnőtt'};{int(datetime.datetime.today().strftime('%Y'))-kutyak[i].szuletes};{i+1}\n")
+    f.close()
