@@ -7,8 +7,8 @@ def menu(menulista):
     print("")
     print("0. Kilép")
     
-    valasztas = input(f"Választás: (0...{len(menulista)}):")
+    valasztas = input(f"Választás: (0...{len(menulista)}): ")
     while len(valasztas) !=1 or "0" > valasztas or "6" < valasztas:
-        valasztas = input("Választás: (0...6): ")
+        valasztas = input(f"Választás: (0...{len(menulista)}): ")
     os.system('cls')
     return int(valasztas)
