@@ -1,5 +1,5 @@
-Igor;Nagy Anna;06 70 587 2145;nagy.anna@gmail.com;Győr Kiss utca 3.
-Bogyó;Kiss Béla;06 70 236 589;kiss.bela@gmail.com;Győr Nagy utca 6.
-Karcsi;Horváth Réka;06 30 942 3614;horvath.reka@gmail.com;Győr Jereváni út 23.
-Lüszi;Kovács Ernő;06 70 542 7823;kovacs.erno@gmail.com;Győr Tihanyi Árpád utca 10.
-Artemisz;Balogh Sára;06 40 589 2561;balogh.sara@gmail.com;Győr Mester utca 9.
+Igor;Nagy Anna;06705872145;nagy.anna@gmail.com;Győr Kiss utca 3.
+Bogyó;Kiss Béla;0670236589;kiss.bela@gmail.com;Győr Nagy utca 6.
+Karcsi;Horváth Réka;06309423614;horvath.reka@gmail.com;Győr Jereváni út 23.
+Lüszi;Kovács Ernő;06705427823;kovacs.erno@gmail.com;Győr Tihanyi Árpád utca 10.
+Artemisz;Balogh Sára;06405892561;balogh.sara@gmail.com;Győr Mester utca 9.

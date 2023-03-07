@@ -1,5 +1,5 @@
 Dunya;2018;németjuhász;nagy;lány;igen;foglalt;felnőtt;5;1
-Lüszi;2021;kaukázusi juhászkutya;nagy;lány;igen;örökbeadott;kölyök;2;2
+Lüszi;2021;kaukázusi-juhászkutya;nagy;lány;igen;örökbeadott;kölyök;2;2
 Honey;2020;pitbull;közepes;fiú;igen;lakos;kölyök;3;3
 Amy;2020;rottweiler;nagy;lány;igen;lakos;kölyök;3;4
 Beni;2012;keverék;kicsi;fiú;igen;lakos;felnőtt;11;5
@@ -10,7 +10,7 @@ Lángos;2020;pitbull;közepes;fiú;igen;foglalt;kölyök;3;9
 Cserkés;2020;keverék;nagy;fiú;igen;lakos;kölyök;3;10
 Dorisz;2015;pitbull;nagy;lány;igen;lakos;felnőtt;8;11
 Cheester;2018;staffordshire;közepes;fiú;igen;lakos;felnőtt;5;12
-Artemisz;2020;kaukázusi;juhászkutya;nagy;lány;igen;kölyök;3;13
+Artemisz;2020;kaukázusi-juhászkutya;nagy;lány;igen;kölyök;kölyök;3;13
 Tyson;2022;husky;nagy;fiú;nem;foglalt;kölyök;1;14
 Nudli;2017;tacskó;közepes;fiú;igen;foglalt;felnőtt;6;15
 Ördög;2020;mudi;közepes;lány;igen;;kölyök;3;16
@@ -18,7 +18,7 @@ Bodza;2018;husky;nagy;lány;igen;örökbeadott;felnőtt;5;17
 Puszedli;2022;keverék;közepes;lány;igen;lakos;kölyök;1;18
 Csibész;2016;mudi;közepes;fiú;nem;foglalt;felnőtt;7;19
 Trixy;2017;németjuhász;nagy;lány;igen;lakos;felnőtt;6;20
-Podlipnik;2006;kaukázusi juhászkutya;kicsi;fiú;igen;lakos;felnőtt;17;21
+Podlipnik;2006;kaukázusi-juhászkutya;kicsi;fiú;igen;lakos;felnőtt;17;21
 Málna;2019;agár;nagy;lány;nem;foglalt;felnőtt;4;22
 Szeder;2016;terrier;közepes;fiú;igen;lakos;felnőtt;7;23
 Gombóc;2020;malamut;közepes;fiú;igen;lakos;kölyök;3;24
@@ -30,5 +30,4 @@ Répa;2023;spániel;kicsi;lány;igen;lakos;kölyök;0;29
 Bogyó;2020;szetter;közepes;fiú;igen;örökbeadott;kölyök;3;30
 Bundás;2010;labrador;nagy;fiú;nem;lakos;felnőtt;13;31
 Szuszu;2016;csivava;kicsi;fiú;igen;foglalt;felnőtt;7;32
-Karcsi;2020;pitbull;közepes;fiú;igen;örökbeadott;kölyök;3;33
-Don;2014;keverék;nagy;fiú;igen;lakos;felnőtt;9;34
+Karcsi;2020;pitbull;nagy;fiú;nem;örökbeadott;kölyök;3;33

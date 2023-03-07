@@ -34,44 +34,64 @@ def FajlOlvasAdomany():
 regexEmail = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
 def checkEmail():
     email = input("\tEmail cím: ")
-    if(re.fullmatch(regexEmail, email)):
-        return str(email)
-    else:
-        checkEmail()
+    ok = False
+    while ok == False:
+        if re.fullmatch(regexEmail, email):
+            return str(email)
+        email = input("\tEmail cím: ")
+
 def checkTel():
     tel = input("\tTelefonszám: ")
-    if len(tel) == 11 and tel.isnumeric():
-        return tel
-    else:
-        checkTel()
+    ok = False
+    while ok == False:
+        if len(tel) == 11 and tel.isnumeric():
+            return str(tel)
+        tel = input("\tTelefonszám: ")
+
 def checkKutyaNev(kutyak):
     good = False
     while not good:
-        allatNev = input("Adja meg az örökbefogadni kívánt kutya nevét: ")
+        allatNev = input("Adja meg az örökbefogadni kívánt kutya nevét [kilépés: mégse]: ")
         for kutya in kutyak:
-            if allatNev == kutya.nev:
+            if allatNev.capitalize() == kutya.nev:
                 good = True
+            elif allatNev.capitalize() == "Mégse":
+                return "mégse"
+        os.system('cls')
+        print("Nincs ilyen kutya.")
     for i in range(len(kutyak)):
-        if kutyak[i].nev == allatNev:
+        if kutyak[i].nev == allatNev.capitalize():
             if kutyak[i].statusz == "foglalt" or kutyak[i].statusz == "örökbeadott":
+                os.system('cls')
                 print("A kutya nem fogadható örökbe, válasszon másik kutyát!")
                 checkKutyaNev(kutyak)
             else:
                 kutyak[i].statusz = "örökbeadott"
-                return allatNev
+                return allatNev.capitalize()
 
 def Orokbefogadas(kutyak, emberek, osszeg):
-    os.system('cls')
+    szabad = []
+    for kutya in kutyak:
+        if kutya.statusz == "lakos":
+            szabad.append(kutya.nev)
+    print("Örökbefogadhatő kutyák:")
+    print(*szabad, sep=", ")
     allatNev = checkKutyaNev(kutyak)
+    if allatNev == "mégse":
+        return
+    os.system('cls')
+    print(f"A kiválasztott kutya: {str(allatNev)}")
     print("Adja meg adatait!")
     emberNev = input("\tTeljes név: ")
     tel = checkTel()
-    email = checkEmail()
-    lakcim = input("\tLakcím: ")
+    email = str(checkEmail())
+    print(email)
+    lakcim = str(input("\tLakcím: "))
     emberek.append(Ember(f"{allatNev};{emberNev};{tel};{email};{lakcim}"))
     FajlIras(kutyak, emberek, osszeg)
+    os.system('cls')
     print("A örökbefogadás sikeres volt!")
-
+    time.sleep(2)
 
 # 2. MENUPONT
 def Listamenu(kutyak):
@@ -147,53 +167,81 @@ def KutyaFelvetel(kutyak, emberek, osszeg):
     valosNem = ["lány", "fiú"]
     valosStatusz = ["lakos", "foglalt", "örökbeadott"]
     if inp.lower() == "igen":
-        neve = input(f"\tAdja meg a kutya nevét: ")
-        szuletesBeker = (input(f"\tAdja meg a kutya születési évét: "))
+        os.system("cls")
+        neve = input("Adja meg a kutya nevét: ").capitalize()
+        os.system("cls")
+        print(f"A kutya neve: {neve}")
+        szuletesBeker = (input("Adja meg a kutya születési évét: "))
         while ok == False:
             if szuletesBeker.isnumeric():
                 if ev-int(szuletesBeker) <= 15 and ev-int(szuletesBeker) >= 0:
                     szuletes = szuletesBeker
                     ok = True
                 else:
-                    szuletesBeker = input(f"\tAz évszám helytelen. Adja meg a kutya születési évét: ")
+                    os.system("cls")
+                    szuletesBeker = input("Az évszám helytelen. Adja meg a kutya születési évét: ")
             else:
-                szuletesBeker = input(f"\tAz évszám helytelen. Adja meg a kutya születési évét: ")
-        fajta = input(f"\tAdja meg a kutya fajtáját: ")
+                os.system("cls")
+                szuletesBeker = input("Az évszám helytelen. Adja meg a kutya születési évét: ")
+        os.system("cls")
+        print(f"A kutya neve: {neve}")
+        print(f"A kutya születési éve: {szuletesBeker}")
+        fajta = input("Adja meg a kutya fajtáját: ").lower()
+        os.system("cls")
+        print(f"A kutya neve: {neve}")
+        print(f"A kutya születési éve: {szuletesBeker}")
+        print(f"A kutya fajtája: {fajta}")
         ok = False
-        termet = input(f"\tAdja meg a kuya termetét [kicsi/közepes/nagy]: ")
+        termet = input(f"Adja meg a kuya termetét [kicsi/közepes/nagy]: ").lower()
         while ok == False:
             if termet.lower() in valosTermet:
                 ok = True
             else:
-                termet = input(f"\tAz termet helytelen. Adja meg a kuya termetét: ")
+                os.system("cls")
+                termet = input(f"Az termet helytelen. Adja meg a kuya termetét [kicsi/közepes/nagy]: ").lower()
         ok = False
-        neme = input(f"\tAdja meg a kutya nemét: ")
+        os.system("cls")
+        print(f"A kutya neve: {neve}")
+        print(f"A kutya születési éve: {szuletesBeker}")
+        print(f"A kutya fajtája: {fajta}")
+        print(f"A kutya termete: {termet}")
+        neme = input(f"Adja meg a kutya nemét [lány/fiú]: ").lower()
         while ok == False:
             if neme in valosNem:
                 ok = True
             else:
-                neme = input(f"\tA nem helytelen. Adja meg a kutya nemét: ")
+                os.system("cls")
+                neme = input("A nem helytelen. Adja meg a kutya nemét [lány/fiú]: ").lower()
         ok = False
-        ivar = input(f"\tIvartalanított a kutya? [igen/nem]: ")
+        os.system("cls")
+        print(f"A kutya neve: {neve}")
+        print(f"A kutya születési éve: {szuletesBeker}")
+        print(f"A kutya fajtája: {fajta}")
+        print(f"A kutya termete: {termet}")
+        print(f"A kutya neme: {neme}")
+        ivar = input("Ivartalanított a kutya? [igen/nem]: ").lower()
         while ok == False:
-            if ivar.lower() == "igen":
+            if ivar == "igen":
                 ok = True
-            elif ivar.lower() == "nem":
+            elif ivar == "nem":
                 ok = True
             else:
-                ivar = input(f"\tRossz adatot adott meg. Ivartalanított a kutya? [igen/nem]: ")
+                ivar = input("Rossz adatot adott meg. Ivartalanított a kutya? [igen/nem]: ").lower()
         ok = False
-        statusz = input(f"\tMi a státusza? [lakos/foglalt/örökbeadott]: ")
-        while ok == False:
-            if statusz.lower() in valosStatusz:
-                ok = True
-            else:
-                statusz = input(f"\tRossz státuszt adott meg. Mi a státusza? [lakos/foglalt/örökbeadott]: ")
+        os.system("cls")
+        print(f"A kutya neve: {neve}")
+        print(f"A kutya születési éve: {szuletesBeker}")
+        print(f"A kutya fajtája: {fajta}")
+        print(f"A kutya termete: {termet}")
+        print(f"A kutya neme: {neme}")
+        print(f"A kutya ivartalanított: {ivar}")
+        statusz = "lakos"
+        print(f"A kutya státusza: {statusz}")
     else:
         return
     kutyak.append(Kutya(f"{neve};{szuletes};{fajta};{termet};{neme};{ivar};{statusz}"))
     FajlIras(kutyak, emberek, osszeg)
-    print("A kutya felvétele sikeres volt!")
+    print("\nA kutya felvétele sikeres volt!")
     time.sleep(2)
 
 
@@ -208,10 +256,10 @@ def KutyaLefoglalas(kutyak, emberek, osszeg):
         inp = input("Szeretne lefoglalni egy kutyát? [Igen/Nem]: ")
     if inp.lower() == "igen":
         kutyanev = input("Adja meg a kutya nevét: ")
-        while kutyanev not in kutyanevek:
+        while kutyanev.capitalize() not in kutyanevek:
             kutyanev = input("Nincs ilyen kutya. Adjon meg másik nevet: ")
         for kutya in kutyak:
-            if kutya.nev == kutyanev:
+            if kutya.nev == kutyanev.capitalize():
                 if kutya.statusz != "foglalt":
                     kutya.statusz = "foglalt"
                     print(f"A kutya státusza vátoztatva lett {kutya.statusz}-ra.")
@@ -245,11 +293,9 @@ def Kutyaadatmod(kutyak, emberek, osszeg):
         elif valasztas == 3:
             kutya.ivar = IvarBeker(kutya)
         elif valasztas == 4:
-            kutya.statusz = StatuszBeker(kutya)
+            kutya.statusz = StatuszBeker()
         valasztas = menu(menupontok)
         FajlIras(kutyak, emberek, osszeg)
-        break    
-    valasztas = menu(menupontok)
 
 
      # 1. választás
@@ -280,7 +326,7 @@ def IvarBeker(kutya):
     while amiszeretne.lower() != "igen" and amiszeretne.lower() != "nem":
         print("Kérem adja meg helyesen")
         amiszeretne = input("Ivartalanítva lett a kutya? [Igen/Nem] ")
-    ivar = "ab"
+    ivar = "a"
     if amiszeretne.lower() == "igen":
         ivar = "igen"
         print("A kutya adata módosítva lett.")
@@ -288,7 +334,7 @@ def IvarBeker(kutya):
         ivar = "nem"
         print("A kutya adata módosítva lett.")
     time.sleep(2)
-    kutya.ivar = amiszeretne.lower
+    kutya.ivar = ivar
     return ivar
 
       # 4. választás
@@ -315,6 +361,8 @@ def Adomanykezeles(kutyak, emberek, osszeg):
     if kerdes.lower() == "igen":
         inp = input("Mit szeretne tenni? [+(adomány hozzáadása)/-(költés feljegyzése)]: ")
         while inp != "+" and inp != "-":
+            os.system("cls")
+            print(f"Jelenlegi egyenleg: {szam} Ft")
             print("Kérem válasszon a lehetőségek közül!")
             inp = input("Mit szeretne tenni? [+(adomány hozzá adása)/-(költés feljegyzése)]: ")
         if inp == "+":
