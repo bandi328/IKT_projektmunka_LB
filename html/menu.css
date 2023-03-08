@@ -1,215 +1,62 @@
-/* @import 'https://fonts.googleapis.com/css?family=Raleway';
-
-*{
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
-}
-html{
-    font-family: Luminary, fantasy;
-}
-.logo a{
-    text-decoration: none;
-    color: #FFF;
-}
-.logo a:hover{
-    text-decoration: none;
-    color: #FFF;
-}
-nav{
-    width: 100%;
-    height: 10%;
-    padding: 1.5rem;
-    background: rgb(73, 162, 184);
-    color: rgb(255, 255, 255) !important;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-}
-.nav-link{
-    color: white !important;
-}
-nav .mainMenu{
-    display: flex;
-    list-style: none;
-}
-nav .mainMenu li a{
-    display: inline-block;
-    padding: 15px;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-size: 18px;
-    transition: 0.2s ease;
-    position: relative;
-}
-.openMenu{
-    font-size: 2rem;
-    margin: 20px;
-    display: none;
-    cursor: pointer;
-    background-color: transparent;
-}
-.mainMenu .closeMenu,
-.icons i{
-    font-size: 2rem;
-    display: none;
-    cursor: pointer;
-}
-.logo {
-    margin: 6px;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-@media (max-width: 800px) {
-    .mainMenu {
-        height: 100%;
-        position: fixed;
-        top: 0px;
-        right: 0px;
-        left: 0px;
-        z-index: 10;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: rgb(0, 0, 0);
-        transition: top 1s ease 0s;
-        display: none;
-    }
-    .mainMenu .closeMenu {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-    }
-    .openMenu {
-        display: block;
-    }
-    .mainMenu li a:hover {
-        background: none;
-    }
-    .icons i {
-        display: inline-block;
-        padding: 12px;
-    }
-}
-ul{
-    margin: 0 0 0 auto !important;
-}
-
-html, body{
-    margin: 0px;
-}
-
-.container1{
-    font-family: Raleway;
-    margin: auto 0 auto 0;
-    text-align: center;
-}
-
-.container1 a{
-    color: #FFF;
-    text-decoration: none;
-    font: 20px Raleway;
-    margin: 0px 10px;
-    padding: 10px 10px;
-    position: relative;
-    z-index: 0;
-    cursor: pointer;
-}
-.borderYtoX a:before, .borderYtoX a:after{
-    position: absolute;
-    opacity: 0.5;
-    height: 100%;
-    width: 2px;
-    content: '';
-    background: #FFF;
-    transition: all 0.2s;
-}
-.borderYtoX a:before{
-    left: 0px;
-    top: 0px;
-}
-
-.borderYtoX a:after{
-    right: 0px;
-    bottom: 0px;
-}
-.borderYtoX a:hover{
-    color: rgb(8, 64, 110) !important;
-}
-.borderYtoX a:hover:before, .borderYtoX a:hover:after{
-    opacity: 1;
-    height: 2px;
-    width: 100%;
-}
-.navbar-toggler{
-    border: none !important;
-    color: transparent !important;
-}
-.logo h1{
-    margin: auto 0;
-} */
-
-body {
+body{
     font-family: "Lato", sans-serif;
-  }
-  
+}
+
 .sidebar {
-height: 100%;
-width: 0;
-position: fixed;
-z-index: 1;
-top: 0;
-left: 0;
-background-color: none;
-overflow-x: hidden;
-transition: 0.5s;
-padding-top: 60px;
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: gray;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
 .sidebar a {
-padding: 8px 8px 8px 32px;
-text-decoration: none;
-font-size: 25px;
-color: #818181;
-display: block;
-transition: 0.3s;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.5s;
 }
 
 .sidebar a:hover {
-color: #f1f1f1;
+    color: black;
 }
 
 .sidebar .closebtn {
-position: absolute;
-top: 0;
-right: 25px;
-font-size: 36px;
-margin-left: 50px;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }
 
 .openbtn {
-font-size: 20px;
-cursor: pointer;
-background-color: #111;
-color: white;
-padding: 10px 15px;
-border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    color: black;
+    padding: 10px 15px;
+    border: none;
 }
 
 #main {
     transition: margin-left .5s;
     padding: 16px;
-    margin-left: 250px;
+    margin-left: 0px;
 }
 
-#mySidebar{
-    width: 250px;
-}
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-.sidebar {padding-top: 15px;}
-.sidebar a {font-size: 18px;}
+    .sidebar{
+        padding-top: 15px;
+    }
+    .sidebar a{
+        font-size: 18px;
+    }
 }

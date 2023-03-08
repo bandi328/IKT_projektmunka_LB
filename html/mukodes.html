@@ -11,30 +11,14 @@
     <title>Menhely adatbázis</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark" id="top">
-    <div class="container-fluid">
-      <div class="logo"><h1><a href="index.html">Menhely adatbázis</a></h1></div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav container1 borderYtoX">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Kezdőlap</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="felepites.html">Felépítése</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="rolunk.html">Rólunk</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="mukodes.html">Működése</a>
-          </li>
-        </ul>
-      </div>
+  <div id="mySidebar" class="sidebar">
+    <a href="index.html">Kezdőlap</a>
+      <a href="felepites.html">Felépítése</a>
+      <a href="rolunk.html">Rólunk</a>
+      <a href="mukodes.html">Működése</a>
     </div>
-</nav>
+    <button id="main" class="openbtn" onclick="Nav()" ">☰</button>
 
+  <script src="menu.js"></script>
 </body>
 </html>
