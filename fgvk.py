@@ -94,15 +94,17 @@ def Orokbefogadas(kutyak, emberek, osszeg):
 
 # 2. MENUPONT
 def Listamenu(kutyak):
-    menupontok2 = ["Fajta szerint", "Születési év szerint", "Termet szerint", "Nem szerint", "Ivartalanitás szerint", "Státusz szerint", "Korosztály szerint"]
+    menupontok2 = ["Fajta szerint", "Születési év szerint", "Termet szerint", "Nem szerint", "Ivartalanitás szerint", "Státusz szerint", "Korosztály szerint", "Életkor szerint"]
     valasztas = menu(menupontok2)
     kutyafajtak = []
     kutyaszuletesek = []
     kutyastatuszok = []
+    kutyaeletkorok = []
     for kutya in kutyak:
         kutyafajtak.append(kutya.fajta)
         kutyaszuletesek.append(kutya.szuletes)
         kutyastatuszok.append(kutya.statusz)
+        kutyaeletkorok.append(kutya.eletkor)
 
     while valasztas != 0:
         if valasztas == 1:
@@ -131,7 +133,7 @@ def Listamenu(kutyak):
                 while szulinap.isnumeric() == False:
                     print("Kérem egy számot adjon meg!")
                     szulinap = input("Adja meg a kutya születési évét: ")
-                print("Nincs ebben az évben született kutya az adatbázisban!")
+                print(f"Nincs {szulinap} az évben született kutya az adatbázisban!")
                 szuliakar = input("Szeretne másik évre rákeresni?[igen/nem] ").lower()
                 while szuliakar != "nem" and szuliakar != "igen":
                     print("Kérem adja meg helyesen")
@@ -213,7 +215,25 @@ def Listamenu(kutyak):
                     for kutya in kutyak:
                         print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
                 time.sleep(5)
-        # elif valsztas == 8:
+        elif valasztas == 8:
+            eletkor = input("Adja meg az kilistázandó életkort: ")
+            while eletkor not in kutyaeletkorok:
+                print(f"Nincs {eletkor} éves kutya az adatbázisban!")
+                eletkorakar = input("Szeretne másik évre rákeresni?[igen/nem] ")
+                while eletkorakar.loewr() != "nem" and eletkorakar.loer() != "igen":
+                    print("Kérem adja meg helyesen")
+                    eletkorakar = input("Szeretne másik évre rákeresni?[igen/nem] ")
+                if eletkorakar == "igen":
+                    eletkor = input("Adja meg az kilistázandó életkort: ")
+                else:
+                    return
+            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            for kutya in kutyak:
+                if kutya.eletkor == int(eletkor):
+                    print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
+            time.sleep(5)
+
+
 
 
 
