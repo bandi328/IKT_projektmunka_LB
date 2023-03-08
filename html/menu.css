@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Raleway';
+/* @import 'https://fonts.googleapis.com/css?family=Raleway';
 
 *{
     box-sizing: border-box;
@@ -6,7 +6,6 @@
     padding: 0px;
 }
 html{
-    /* font-family: 'Times New Roman', Times, serif; */
     font-family: Luminary, fantasy;
 }
 .logo a{
@@ -147,8 +146,70 @@ html, body{
 .navbar-toggler{
     border: none !important;
     color: transparent !important;
-    /* background-color: red !important; */
 }
 .logo h1{
     margin: auto 0;
+} */
+
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+.sidebar {
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 1;
+top: 0;
+left: 0;
+background-color: none;
+overflow-x: hidden;
+transition: 0.5s;
+padding-top: 60px;
+}
+
+.sidebar a {
+padding: 8px 8px 8px 32px;
+text-decoration: none;
+font-size: 25px;
+color: #818181;
+display: block;
+transition: 0.3s;
+}
+
+.sidebar a:hover {
+color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+}
+
+.openbtn {
+font-size: 20px;
+cursor: pointer;
+background-color: #111;
+color: white;
+padding: 10px 15px;
+border: none;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-left: 250px;
+}
+
+#mySidebar{
+    width: 250px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+.sidebar {padding-top: 15px;}
+.sidebar a {font-size: 18px;}
 }

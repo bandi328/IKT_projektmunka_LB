@@ -5,7 +5,6 @@ import time
 import datetime
 import os
 import re
-import random
 
 # FÁJLOLVASÁSOK
 def FajlOlvasKutya(kutyak):
@@ -343,13 +342,13 @@ def Kutyaadatmod(kutyak, emberek, osszeg):
         FajlIras(kutyak, emberek, osszeg)
 
 
-     # 1. választás
+    # 1. választás
 def KutyanevBeker(kutya):
-    ujNev = input("Adja meg az új nevét: ")
+    ujNev = input("Adja meg az új nevét: ").capitalize()
     kutya.nev = ujNev
     return ujNev
 
-      # 2. választás
+    # 2. választás
 def TermetBeker(kutya):
     lehetsegesTermet = ['kicsi', 'közepes', 'nagy']
     for i in range(len(lehetsegesTermet)):
@@ -362,17 +361,17 @@ def TermetBeker(kutya):
         elif lehetsegesTermet[int(valasztas)-1] == "nagy":
             print(f"A kutya termete változtatva lett {lehetsegesTermet[int(valasztas)-1]}-ra")
     time.sleep(2)
-    kutya.termet = lehetsegesTermet[int(valasztas)-1]
+    kutya.termet = lehetsegesTermet[int(valasztas)-1].lower()
     return lehetsegesTermet[int(valasztas)-1]
 
-      # 3. választás
+    # 3. választás
 def IvarBeker(kutya):
-    amiszeretne = input("Ivartalanítva lett a kutya? [Igen/Nem] ")
-    while amiszeretne.lower() != "igen" and amiszeretne.lower() != "nem":
+    amiszeretne = input("Ivartalanítva lett a kutya? [Igen/Nem] ").lower()
+    while amiszeretne != "igen" and amiszeretne != "nem":
         print("Kérem adja meg helyesen")
-        amiszeretne = input("Ivartalanítva lett a kutya? [Igen/Nem] ")
+        amiszeretne = input("Ivartalanítva lett a kutya? [Igen/Nem] ").lower()
     ivar = "a"
-    if amiszeretne.lower() == "igen":
+    if amiszeretne == "igen":
         ivar = "igen"
         print("A kutya adata módosítva lett.")
     else:
@@ -382,7 +381,7 @@ def IvarBeker(kutya):
     kutya.ivar = ivar
     return ivar
 
-      # 4. választás
+    # 4. választás
 def StatuszBeker():
     lehetsegesStatusz = ['lakos','foglalt', "örökbeadott"]
     for i in range(len(lehetsegesStatusz)):
@@ -392,7 +391,7 @@ def StatuszBeker():
         valasztas = input("Adja meg a típus számát [1-3]: ")
     print(f"A kutya státusza változtatva lett {lehetsegesStatusz[int(valasztas)-1]}-ra")
     time.sleep(2)
-    return lehetsegesStatusz[int(valasztas)-1]
+    return lehetsegesStatusz[int(valasztas)-1].lower()
 
 
 # 6. MENUPONT
