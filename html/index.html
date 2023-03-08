@@ -36,40 +36,28 @@
     </div>
 </nav> -->
 
-<!-- <div class="row">
-  <div class="col-12 col-lg-6 p-3">
-    <div class="">
-      <p class="">
-        Üdvözöljük az oldalunkon! <br>
-        Az oldal a projektmunkánk bemutatására készült. <br>
-        Projektünk egy menhely adatbázisa lett. Különböző feladatokat lehet elvégezni benne. Megsegíti az adatok kezelését.
-        Programunk felhasználó barát, úgy készítettük, hogy egy hétköznapi ember számára is könnyen kezelhető legyen.
-
-      </p>
+<div id="mySidebar" class="sidebar">
+  <a href="index.html">Kezdőlap</a>
+  <a href="felepites.html">Felépítése</a>
+  <a href="rolunk.html">Rólunk</a>
+  <a href="mukodes.html">Működése</a>
+</div>
+<div class="container">
+  <button id="main" class="openbtn" onclick="Nav()" ">☰</button>
+    <div class="row">
+      <div class="col-12 col-lg-6 p-3">
+        <div class="">
+          <p class="">
+            Üdvözöljük az oldalunkon! <br>
+            Az oldal a projektmunkánk bemutatására készült. <br>
+            Projektünk egy menhely adatbázisa lett. Különböző feladatokat lehet elvégezni benne. Megsegíti az adatok kezelését.
+            Programunk felhasználó barát, úgy készítettük, hogy egy hétköznapi ember számára is könnyen kezelhető legyen.
+          </p>
+        </div>
+      </div>
     </div>
-  </div> -->
-  <div id="mySidebar" class="sidebar">
-    <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a> -->
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
-  </div>
+</div>
   
-  <div id="main">
-    <button class="openbtn" onclick="openNav()">☰</button>
-  </div>
-
-<script>
-  function openNav() {
-    document.getElementById("mySidebar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-  }
-  
-  function closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-  }
-  </script>
+  <script src="menu.js"></script>
 </body>
 </html>
