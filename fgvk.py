@@ -430,6 +430,27 @@ def Adomanykezeles(kutyak, emberek, osszeg):
     osszeg = szam
     FajlIras(kutyak, emberek, osszeg)
 
+# 7.MENUPONT
+def IdKeres(kutyak, emberek, osszeg):
+    kutyaazonositok = []
+    for kutya in kutyak:
+        kutyaazonositok.append(kutya.azonosito)
+    azonositoKer = input("Adja meg a kuyta azonosítóját: ")
+    while azonositoKer not in kutyaazonositok:
+        print("Nincs ilyen azonosítójú!")
+        akarID = input("Szeretne másik azonosítóra rákeresni?[Igen/Nem] ")
+        while akarID.lower() != "igen" or akarID.lower() != "nem":
+            print("Kérem válasszon a lehetőségek közül/Adja meg helyesen!")
+            akarID = input("Szeretne másik azonosítóra rákeresni?[Igen/Nem] ")
+            if akarID.lower() == "igen":
+                azonositoKer = input("Adja meg a kuyta azonosítóját: ")
+            else:
+                return
+    print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+    for kutya in kutyak:
+        if kutya.azonosito == int(azonositoKer):
+            print(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz};{'kölyök' if kutya.szuletes >= 2020 else 'felnőtt'};{int(datetime.datetime.today().strftime('%Y'))-kutya.szuletes};{lista[-1]}\n")
+        time.sleep(2)
 
 
 # fájlÍrás
