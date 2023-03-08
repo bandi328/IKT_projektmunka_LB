@@ -94,7 +94,7 @@ def Orokbefogadas(kutyak, emberek, osszeg):
 
 # 2. MENUPONT
 def Listamenu(kutyak):
-    menupontok2 = ["Fajta szerint", "Születési év szerint", "Termet szerint", "Nem szerint", "Ivartalanitás szerint", "Státusz szerint", ]
+    menupontok2 = ["Fajta szerint", "Születési év szerint", "Termet szerint", "Nem szerint", "Ivartalanitás szerint", "Státusz szerint", "Korosztály szerint"]
     valasztas = menu(menupontok2)
     kutyafajtak = []
     kutyaszuletesek = []
@@ -198,6 +198,23 @@ def Listamenu(kutyak):
             time.sleep(5)
             input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
             valasztas = menu(menupontok2)
+        elif valasztas == 7:
+            korosztaly = input("Adja meg a szűrni kívánt korosztályt: ")
+            while korosztaly.lower() != "kölyök" and korosztaly.lower() != "felnőtt":
+                print("Kérem válasszon a lehetőségek közül/Adja meg helyesen!")
+                korosztaly = input("Adja meg a szűrni kívánt korosztályt: ")
+                if korosztaly.lower() == "kölyök":
+                    print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+                for kutya in kutyak:
+                        print("{: >20}".format(kutya.nev, kutya.szuletes))
+                        print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
+                else:
+                    print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+                    for kutya in kutyak:
+                        print(f"{kutya.nev}\t{kutya.szuletes}\t{kutya.fajta}\t{kutya.termet}\t{kutya.nem}\t{kutya.ivar}\t{kutya.statusz}")
+                time.sleep(5)
+        # elif valsztas == 8:
+
 
 
 
