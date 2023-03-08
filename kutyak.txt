@@ -10,7 +10,7 @@ Lángos;2020;pitbull;közepes;fiú;igen;foglalt;kölyök;3;9
 Cserkés;2020;keverék;nagy;fiú;igen;lakos;kölyök;3;10
 Dorisz;2015;pitbull;nagy;lány;igen;lakos;felnőtt;8;11
 Cheester;2018;staffordshire;közepes;fiú;igen;lakos;felnőtt;5;12
-Artemisz;2020;kaukázusi-juhászkutya;nagy;lány;igen;kölyök;kölyök;3;13
+Artemisz;2020;kaukázusi-juhászkutya;nagy;lány;igen;lakos;kölyök;3;13
 Tyson;2022;husky;nagy;fiú;nem;foglalt;kölyök;1;14
 Nudli;2017;tacskó;közepes;fiú;igen;foglalt;felnőtt;6;15
 Ördög;2020;mudi;közepes;lány;igen;;kölyök;3;16

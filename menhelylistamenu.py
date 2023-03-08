@@ -9,6 +9,6 @@ def menu(menulista):
 
     valasztas = input(f"\nVálasztás: (0...{len(menulista)}):")
     while len(valasztas) != 1 or "0" > valasztas or "5" < valasztas:
-        valasztas = input("\nVálasztás: (0...5):")
+        valasztas = input(f"\nVálasztás: (0...{len(menulista)}):")
     os.system('cls')
     return int(valasztas)
