@@ -6,9 +6,10 @@ emberek = []
 FajlOlvasKutya(kutyak)
 KutyaEvIras(kutyak)
 KutyaAzonositoGeneral(kutyak)
+FajlOlvasKutya(kutyak)
 FajlOlvasEmber(emberek)
 
-menupontok = ["Örökbefogadás", "Menhelyi kutyák kilistázása", "Új kutya felvétele", "Kutya lefoglalása", "Kutya adatai módosítása", "Adományok kezelése"]
+menupontok = ["Örökbefogadás", "Menhelyi kutyák kilistázása", "Új kutya felvétele", "Kutya lefoglalása", "Kutya adatai módosítása", "Adományok kezelése", "Azonosító alapján keresés"]
 
 valasztas = menu(menupontok)
 while valasztas != 0:
@@ -25,4 +26,6 @@ while valasztas != 0:
         Kutyaadatmod(kutyak, emberek, osszeg)
     elif valasztas == 6:
         Adomanykezeles(kutyak, emberek, osszeg)
+    elif valasztas == 7:
+        IdKeres(kutyak, emberek, osszeg)
     valasztas = int(menu(menupontok))

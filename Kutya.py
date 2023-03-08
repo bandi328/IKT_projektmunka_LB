@@ -8,6 +8,11 @@ class Kutya:
         self.nem = adatok[4]
         self.ivar = adatok[5]
         self.statusz = adatok[6]
+        if len(adatok) >= 6:
+            self.korosztaly = adatok[7]
+            self.eletkor = adatok[8]
+            self.azonosito = adatok[9]
+
 
     def Eletkor(self, kutyak):
         eletkor = ""
