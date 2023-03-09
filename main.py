@@ -6,6 +6,7 @@ emberek = []
 FajlOlvasKutya(kutyak)
 KutyaEvIras(kutyak)
 KutyaAzonositoGeneral(kutyak)
+kutyak = []
 FajlOlvasKutya(kutyak)
 FajlOlvasEmber(emberek)
 
