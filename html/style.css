@@ -1,21 +1,12 @@
-
 .container{
     width: 100% !important;
-    margin: 0 !important;
     padding: 0 !important;
     height: 100% !important;
 }
 .row{
     z-index: 0;
 }
-.profil:not(#title){
-    border: white solid 1px;
-    border-radius: 1rem;
-}
-.profil:not(#title):hover{
-    border: rgb(73, 162, 184) solid 1px;
-}
-.profil .title{
+.title{
     font-size: 1.9rem;
     padding: 0.5rem;
 }
