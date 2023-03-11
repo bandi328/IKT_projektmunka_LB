@@ -21,11 +21,12 @@ body{
     font-size: 25px;
     color: white;
     display: block;
-    transition: 0.5s;
+    transition: 0.25s;
 }
 
 .sidebar a:hover {
     color: black;
+    border-left: 5px black solid;
 }
 
 .sidebar .closebtn {
