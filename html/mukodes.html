@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title>Menhely adatbázis</title>
+    <link rel="icon" type="image/x-icon" href="pictures/icon.png">
+    <title>Menhely adatbázis - Működése</title>
 </head>
 <body>
   <div id="mySidebar" class="sidebar">
@@ -19,6 +20,121 @@
     </div>
     <button id="main" class="openbtn" onclick="Nav()" ">☰</button>
 
-  <script src="menu.js"></script>
+<div class="container">
+<div class="row">
+<p class="felirat">Fájlok beolvasása</p>
+<pre>
+def FajlOlvasKutya(kutyak):
+    f = open("kutyak.txt", "r", encoding="utf-8")
+    for sor in f:
+        egyKutya = Kutya(sor)
+        kutyak.append(egyKutya)
+    f.close()
+
+def FajlOlvasAdomany():
+    adomany = 0
+    f = open("adomany.txt", "r", encoding="utf-8")
+    for sor in f:
+        adomany = sor
+    f.close()
+    return adomany</pre>
+<p><br></p>
+<p class="felirat">Input check</p>
+<pre>
+regexEmail = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+def checkEmail():
+    email = input("\tEmail cím: ")
+    ok = False
+    while ok == False:
+        if re.fullmatch(regexEmail, email):
+            return str(email)
+        email = input("\tEmail cím: ")</pre>
+<p><br></p>
+<p class="felirat">2. menüpont szerkezete</p>
+<pre>
+if valasztas == 1:
+fajta = input("Adja meg a kutyák fajtáját: ")
+while fajta not in kutyafajtak:
+    print("Nincs ilyen fajta kutya az adatbázisban!")
+    inpfaj = input("Szeretne másik fajtára keresni? ")
+    if inpfaj.lower() == "igen":
+        fajta = input("Adja meg a kutyák fajtáját: ")
+    elif inpfaj.lower() != "nem" and inpfaj.lower() != "igen":
+        print("Kérem adja meg helyesen")
+        inpfaj = input("Szeretne másik fajtára keresni? ")
+print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
+for kutya in kutyak:
+    if kutya.fajta == fajta:
+        print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
+time.sleep(5)
+input(f"\nTovábblépéshez nyomja meg az ENTER-t. ")
+valasztas = menu(menupontok2)
+</pre>
+<p><br></p>
+<p class="felirat">Kutya adatainak módosítása</p>
+<pre>
+def Kutyaadatmod(kutyak, emberek, osszeg):
+    menupontok = ["Név", "Termet", "Ivartalanítás", "Státusz"]
+    nev = input("Adja meg a kutya nevét: ")
+    nevek = []
+    for kutya in kutyak:
+        nevek.append(kutya.nev)
+    while nev not in nevek:
+        print("Nem található a megadott névnek megfelelő kutya!")
+        nev = input("Adja meg a kutya nevét: ")
+    print("Válasszon módosítandó adatot: ")
+    valasztas = menu(menupontok)
+    while valasztas != 0:
+        if valasztas == 1:
+            kutya.nev = KutyanevBeker(kutya)
+        elif valasztas == 2:
+            kutya.termet = TermetBeker(kutya)
+        elif valasztas == 3:
+            kutya.ivar = IvarBeker(kutya)
+        elif valasztas == 4:
+            kutya.statusz = StatuszBeker()
+        valasztas = menu(menupontok)
+        FajlIras(kutyak, emberek, osszeg)
+
+
+def KutyanevBeker(kutya):
+    ujNev = input("Adja meg az új nevét: ").capitalize()
+    kutya.nev = ujNev
+    return ujNev</pre>
+<p><br></p>
+<p class="felirat">Adományok és log</p>
+<pre>
+def Adomanykezeles(kutyak, emberek, osszeg):
+    ...
+
+    ...
+    #log
+    f = open("adomany_log.txt", "a", encoding="utf-8")
+    f.write(f"régi: {osszeg} Ft, új: {szam} Ft, {'költség:' if inp == '-' else 'adomány:'} {inp}{koltseg} Ft\n")
+    f.close()
+</pre>
+<p><br></p>
+<p class="felirat">Fájlok írása</p>
+<pre>
+def FajlIras(kutyak, emberek, osszeg):
+    f = open("kutyak.txt", "w", encoding="utf-8")
+    for kutya in kutyak:
+        f.write(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz}\n")
+    f.close()
+
+    f = open("ember.txt", "w", encoding="utf-8")
+    for ember in emberek:
+        f.write(f"{ember.kutyanev};{ember.nev};{ember.telefonszam};{ember.emailcim};{ember.lakcim}\n")
+    f.close()
+
+    f = open("adomany.txt", "w", encoding="utf-8")
+    f.write(str(osszeg))
+    f.close()
+    KutyaEvIras(kutyak)
+    KutyaAzonositoGeneral(kutyak)</pre>
+</div>
+</div>
+<br><br>
+<script src="menu.js"></script>
 </body>
 </html>
