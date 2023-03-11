@@ -13,7 +13,7 @@ Cheester;2018;staffordshire;közepes;fiú;igen;lakos;felnőtt;5;12
 Artemisz;2020;kaukázusi-juhászkutya;nagy;lány;igen;lakos;kölyök;3;13
 Tyson;2022;husky;nagy;fiú;nem;foglalt;kölyök;1;14
 Nudli;2017;tacskó;közepes;fiú;igen;foglalt;felnőtt;6;15
-Ördög;2020;mudi;közepes;lány;igen;;kölyök;3;16
+Ördög;2020;mudi;közepes;lány;igen;lakos;kölyök;3;16
 Bodza;2018;husky;nagy;lány;igen;örökbeadott;felnőtt;5;17
 Puszedli;2022;keverék;közepes;lány;igen;lakos;kölyök;1;18
 Csibész;2016;mudi;közepes;fiú;nem;foglalt;felnőtt;7;19

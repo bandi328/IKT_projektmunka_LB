@@ -100,15 +100,11 @@ def Listamenu(kutyak):
     kutyaszuletesek = []
     kutyastatuszok = []
     kutyaeletkorok = []
-    kutyatermetek = []
-    kutyanemek = []
     for kutya in kutyak:
         kutyafajtak.append(kutya.fajta)
         kutyaszuletesek.append(kutya.szuletes)
         kutyastatuszok.append(kutya.statusz)
         kutyaeletkorok.append(kutya.eletkor)
-        kutyatermetek.append(kutya.termet)
-        kutyanemek.append(kutya.nem)
 
     while valasztas != 0:
         if valasztas == 1:
@@ -121,14 +117,11 @@ def Listamenu(kutyak):
                 elif inpfaj.lower() != "nem" and inpfaj.lower() != "igen":
                     print("Kérem adja meg helyesen")
                     inpfaj =input("Szeretne másik fajtára keresni?")
-            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
-            a = 0
+            # print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
             for kutya in kutyak:
                 if kutya.fajta == fajta:
-                    print("{0:<20} {1:<8} {2:<25} {3:<8} {4:<5} {5:<9} {6:<15} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
-                    a += 1
-                if a == kutyafajtak.count(kutya.fajta):
-                    break
+                    print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
             time.sleep(5)
             input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
             valasztas = menu(menupontok2)
@@ -148,16 +141,10 @@ def Listamenu(kutyak):
                     szuliakar = input("Szeretne másik évre rákeresni?[igen/nem] ").lower()
                 if szuliakar == "igen":
                     szulinap = input("Adja meg a kutya születési évét: ")
-                else:
-                    return
-            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
-            a = 0
+            print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
             for kutya in kutyak:
                 if kutya.szuletes == int(szulinap):
-                    print("{0:<20} {1:<8} {2:<25} {3:<8} {4:<5} {5:<9} {6:<15} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
-                    a += 1
-                if a == kutyaszuletesek.count(kutya.szuletes):
-                    break
+                    print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
             time.sleep(5)
             input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
             valasztas = menu(menupontok2)
@@ -167,14 +154,10 @@ def Listamenu(kutyak):
             while termet.lower() not in termetek:
                 print("Nem helyesen adta meg!")
                 termet = input("Adja meg a kutya termetét[nagy/közepes/kicsi]: ")
-            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
-            a = 0
+            print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
             for kutya in kutyak:
                 if kutya.termet == termet.lower():
-                    print("{0:<20} {1:<8} {2:<25} {3:<8} {4:<5} {5:<9} {6:<15} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
-                    a += 1
-                if a == kutyatermetek.count(kutya.termet):
-                    break
+                    print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
             time.sleep(5)
             input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
             valasztas = menu(menupontok2)
@@ -185,14 +168,10 @@ def Listamenu(kutyak):
                 nem = input("Adja meg a kutya nemét[lány/fiú]: ")
             while nem.lower() != "lány":
                 nem = input("Adja meg a kutya nemét[lány/fiú]: ")
-            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
-            a = 0
+            print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
             for kutya in kutyak:
                 if kutya.nem == nem.lower():
-                    print("{0:<20} {1:<8} {2:<25} {3:<8} {4:<5} {5:<9} {6:<15} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
-                    a += 1
-                if a == kutyanemek.count(kutya.nem):
-                    break
+                    print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
             time.sleep(5)
             input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
             valasztas = menu(menupontok2)
@@ -201,10 +180,10 @@ def Listamenu(kutyak):
             while ivar.lower() != "igen" and ivar.lower() != "nem":
                 print("Kérem válasszon a lehetőségek közül/Adja meg helyesen!")
                 ivar = input("Adja meg a kutya ivartalanítva van-e[Igen/Nem]: ")
-            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
             for kutya in kutyak:
                 if kutya.ivar == ivar.lower():
-                    print("{0:<20} {1:<8} {2:<25} {3:<8} {4:<5} {5:<9} {6:<15} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))   
+                    print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))   
             time.sleep(5)
             input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
             valasztas = menu(menupontok2)
@@ -213,26 +192,26 @@ def Listamenu(kutyak):
             while statusz.lower() not in kutyastatuszok:
                 print("Kérem válasszon a lehetőségek közül/Adja meg helyesen!")
                 statusz = input("Adja meg a kutya státuszát[lakos/foglalt/örökbeadott]:")
-            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
             for kutya in kutyak:
                 if kutya.statusz == statusz.lower():
-                    print("{0:<20} {1:<8} {2:<25} {3:<8} {4:<5} {5:<9} {6:<15} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))   
+                    print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))   
             time.sleep(5)
             input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
             valasztas = menu(menupontok2)
         elif valasztas == 7:
-            korosztaly = input("Adja meg a szűrni kívánt korosztályt: ")
+            korosztaly = input("Adja meg a szűrni kívánt korosztályt[kölyök/felnőtt]: ")
             while korosztaly.lower() != "kölyök" and korosztaly.lower() != "felnőtt":
                 print("Kérem válasszon a lehetőségek közül/Adja meg helyesen!")
                 korosztaly = input("Adja meg a szűrni kívánt korosztályt: ")
                 if korosztaly.lower() == "kölyök":
-                    print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+                    print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
                 for kutya in kutyak:
-                        print("{0:<20} {1:<8} {2:<25} {3:<8} {4:<5} {5:<9} {6:<15} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
+                        print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
                 else:
-                    print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+                    print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
                     for kutya in kutyak:
-                        print("{0:<20} {1:<8} {2:<25} {3:<8} {4:<5} {5:<9} {6:<15} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
+                        print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
                 time.sleep(5)
                 input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
             valasztas = menu(menupontok2)
@@ -248,10 +227,10 @@ def Listamenu(kutyak):
                     eletkor = input("Adja meg az kilistázandó életkort: ")
                 else:
                     return
-            print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+            print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
             for kutya in kutyak:
                 if kutya.eletkor == eletkor:
-                    print("{0:<20} {1:<8} {2:<25} {3:<8} {4:<5} {5:<9} {6:<15} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
+                    print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
             time.sleep(5)
             input(f"\nTovábblépéshez nyomja meg az ENTER-t.")
             valasztas = menu(menupontok2)
