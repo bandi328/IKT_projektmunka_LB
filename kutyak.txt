@@ -1,7 +1,7 @@
 Dunya;2018;németjuhász;nagy;lány;igen;foglalt;felnőtt;5;1
 Lüszi;2021;kaukázusi-juhászkutya;nagy;lány;igen;örökbeadott;kölyök;2;2
 Honey;2020;pitbull;közepes;fiú;igen;lakos;kölyök;3;3
-Amy;2020;rottweiler;nagy;lány;igen;lakos;kölyök;3;4
+Amy;2020;rottweiler;nagy;lány;igen;örökbeadott;kölyök;3;4
 Beni;2012;keverék;kicsi;fiú;igen;lakos;felnőtt;11;5
 Bianka;2011;keverék;közepes;lány;igen;lakos;felnőtt;12;6
 Artúr;2017;tacskó;kicsi;fiú;igen;lakos;felnőtt;6;7
