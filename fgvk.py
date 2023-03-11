@@ -485,10 +485,10 @@ def IdKeres(kutyak, emberek, osszeg):
                 azonositoKer = input("Adja meg a kuyta azonosítóját: ")
             else:
                 return
-    print("Név\tSzületés\tFajta\tTermet\tNeme\tIvartalanítva\tStátusz")
+    print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
     for kutya in kutyak:
         if kutya.azonosito == int(azonositoKer):
-            print(f"{kutya.nev};{kutya.szuletes};{kutya.fajta};{kutya.termet};{kutya.nem};{kutya.ivar};{kutya.statusz};{'kölyök' if kutya.szuletes >= 2020 else 'felnőtt'};{int(datetime.datetime.today().strftime('%Y'))-kutya.szuletes};{kutya[-1]}\n")
+            print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
         time.sleep(2)
 
 
