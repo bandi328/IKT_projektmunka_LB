@@ -1,2 +1,3 @@
 régi: 10000 Ft, új: 11200 Ft, adomány: +1200 Ft
 régi: 11200 Ft, új: 10000 Ft, költség: -1200 Ft
+régi: 10000 Ft, új: 10500 Ft, adomány: +500 Ft
