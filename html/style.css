@@ -29,7 +29,7 @@ body, h3{
 }
 .szoveg h3, .szoveg h4{
     text-align: center;
-    background-image: linear-gradient(to right, transparent, rgb(0, 170, 255), transparent);
+    background-image: linear-gradient(to right, transparent, rgb(119, 172, 236), transparent);
     padding: 0.3rem;
 }
 .szoveg a{
@@ -138,5 +138,8 @@ pre{
     .main-text{
         display: none;
         visibility: hidden;
+    }
+    .kozepre{
+        position: absolute;
     }
 }
