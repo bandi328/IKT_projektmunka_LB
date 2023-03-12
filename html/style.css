@@ -5,6 +5,37 @@ body{
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+body, p{
+    text-align: justify !important;
+}
+body, h3{
+    text-align: left;
+}
+
+.container2{
+    position: relative;
+    text-align: left;
+    color: white;
+}
+.container2 img{
+    width: 100%;
+}
+.centered{
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    font-size: large;
+    transform: translate(-50%, -50%);
+}
+.szoveg h3, .szoveg h4{
+    text-align: center;
+    background-image: linear-gradient(to right, transparent, rgb(0, 170, 255), transparent);
+    padding: 0.3rem;
+}
+.szoveg a{
+    color: black !important;
+    text-decoration: none !important;
+}
 
 .bg-img{
     z-index: -1;
@@ -104,6 +135,8 @@ pre{
         font-size: 0.7rem !important;
         width: 100% !important;
     }
-
-    
+    .main-text{
+        display: none;
+        visibility: hidden;
+    }
 }
