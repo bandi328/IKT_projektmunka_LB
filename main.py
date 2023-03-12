@@ -28,5 +28,5 @@ while valasztas != 0:
     elif valasztas == 6:
         Adomanykezeles(kutyak, emberek, osszeg)
     elif valasztas == 7:
-        IdKeres(kutyak, emberek, osszeg)
+        IdKeres(kutyak)
     valasztas = int(menu(menupontok))

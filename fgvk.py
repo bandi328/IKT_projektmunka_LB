@@ -84,7 +84,6 @@ def Orokbefogadas(kutyak, emberek, osszeg):
     emberNev = input("\tTeljes név: ")
     tel = checkTel()
     email = str(checkEmail())
-    print(email)
     lakcim = str(input("\tLakcím: "))
     emberek.append(Ember(f"{allatNev};{emberNev};{tel};{email};{lakcim}"))
     FajlIras(kutyak, emberek, osszeg)
@@ -307,6 +306,7 @@ def KutyaFelvetel(kutyak, emberek, osszeg):
             elif ivar == "nem":
                 ok = True
             else:
+                os.system("cls")
                 ivar = input("Rossz adatot adott meg. Ivartalanított a kutya? [igen/nem]: ").lower()
         ok = False
         os.system("cls")
@@ -363,53 +363,66 @@ def KutyaLefoglalas(kutyak, emberek, osszeg):
 
 # 5.MENUPONT
 def Kutyaadatmod(kutyak, emberek, osszeg):
-    menupontok = ["Név", "Termet", "Ivartalanítás", "Státusz"]
-    nev = input("Adja meg a kutya nevét: ")
+    menupontok = ["Név", "Termet", "Ivartalanítás"]
     nevek = []
     for kutya in kutyak:
         nevek.append(kutya.nev)
+    print("Választható kutyák:")
+    print(*nevek, sep=", ")
+    nev = input("\nAdja meg a kutya nevét: ").capitalize()
     while nev not in nevek:
-        print("Nem található a megadott névnek megfelelő kutya!")
-        nev = input("Adja meg a kutya nevét: ")
+        os.system("cls")
+        print("Nem található a megadott névnek megfelelő kutya!\n")
+        print("Választható kutyák:")
+        print(*nevek, sep=", ")
+        nev = input("\nAdja meg a kutya nevét: ").capitalize()
     print("Válasszon módosítandó adatot: ")
     valasztas = menu(menupontok)
     while valasztas != 0:
         if valasztas == 1:
-            kutya.nev = KutyanevBeker(kutya)
+            for i in range(len(kutyak)):
+                if kutyak[i].nev == nev:
+                    nev = kutyak[i].nev = KutyanevBeker()
+            FajlIras(kutyak, emberek, osszeg)
         elif valasztas == 2:
-            kutya.termet = TermetBeker(kutya)
+            for i in range(len(kutyak)):
+                if kutyak[i].nev == nev:
+                    kutyak[i].termet = TermetBeker()
+            FajlIras(kutyak, emberek, osszeg)
         elif valasztas == 3:
-            kutya.ivar = IvarBeker(kutya)
-        elif valasztas == 4:
-            kutya.statusz = StatuszBeker()
+            for i in range(len(kutyak)):
+                if kutyak[i].nev == nev:
+                    kutyak[i].ivar = IvarBeker()
+            FajlIras(kutyak, emberek, osszeg)
         valasztas = menu(menupontok)
-        FajlIras(kutyak, emberek, osszeg)
 
 
     # 1. választás
-def KutyanevBeker(kutya):
-    ujNev = input("Adja meg az új nevét: ").capitalize()
-    kutya.nev = ujNev
+def KutyanevBeker():
+    ujNev = input("Adja meg a kutya új nevét: ").capitalize()
     return ujNev
 
     # 2. választás
-def TermetBeker(kutya):
+def TermetBeker():
     lehetsegesTermet = ['kicsi', 'közepes', 'nagy']
     for i in range(len(lehetsegesTermet)):
         print(f"{i+1}. {lehetsegesTermet[i]}")
-    valasztas = "ab"
-    while '0' > valasztas or '3' < valasztas:
+    valasztas = input("Adja meg a típus számát [1-3]: ")
+    while valasztas.isnumeric() == False:
+        print("Kérem számot adjon meg!")
         valasztas = input("Adja meg a típus számát [1-3]: ")
-        if lehetsegesTermet[int(valasztas)-1] == "kicsi" or lehetsegesTermet[int(valasztas)-1] == "közepes":
-            print(f"A kutya termete változtatva lett {lehetsegesTermet[int(valasztas)-1]}-re")
-        elif lehetsegesTermet[int(valasztas)-1] == "nagy":
-            print(f"A kutya termete változtatva lett {lehetsegesTermet[int(valasztas)-1]}-ra")
+    while 0 > int(valasztas) or 3 < int(valasztas):
+        print("Kérem jó számot adjon meg!")
+        valasztas = input("Adja meg a típus számát [1-3]: ")
+    if lehetsegesTermet[int(valasztas)-1] == "kicsi" or lehetsegesTermet[int(valasztas)-1] == "közepes":
+        print(f"A kutya termete változtatva lett {lehetsegesTermet[int(valasztas)-1]}-re")
+    elif lehetsegesTermet[int(valasztas)-1] == "nagy":
+        print(f"A kutya termete változtatva lett {lehetsegesTermet[int(valasztas)-1]}-ra")
     time.sleep(2)
-    kutya.termet = lehetsegesTermet[int(valasztas)-1].lower()
     return lehetsegesTermet[int(valasztas)-1]
 
     # 3. választás
-def IvarBeker(kutya):
+def IvarBeker():
     amiszeretne = input("Ivartalanítva lett a kutya? [Igen/Nem] ").lower()
     while amiszeretne != "igen" and amiszeretne != "nem":
         print("Kérem adja meg helyesen")
@@ -422,20 +435,7 @@ def IvarBeker(kutya):
         ivar = "nem"
         print("A kutya adata módosítva lett.")
     time.sleep(2)
-    kutya.ivar = ivar
     return ivar
-
-    # 4. választás
-def StatuszBeker():
-    lehetsegesStatusz = ['lakos','foglalt', "örökbeadott"]
-    for i in range(len(lehetsegesStatusz)):
-        print(f"{i+1}. {lehetsegesStatusz[i]}")
-    valasztas = "ab"
-    while '0' >= valasztas or '3' < valasztas:
-        valasztas = input("Adja meg a típus számát [1-3]: ")
-    print(f"A kutya státusza változtatva lett {lehetsegesStatusz[int(valasztas)-1]}-ra")
-    time.sleep(2)
-    return lehetsegesStatusz[int(valasztas)-1].lower()
 
 
 # 6. MENUPONT
@@ -482,26 +482,43 @@ def Adomanykezeles(kutyak, emberek, osszeg):
     time.sleep(2)
 
 # 7.MENUPONT
-def IdKeres(kutyak, emberek, osszeg):
+def azonositoCheck(beker, azonositok):
+    while beker.isnumeric() == False:
+        os.system("cls")
+        print(f"Kérem {azonositok[0]}-{azonositok[-1]} közötti számot adjon meg!")
+        beker = input("Adja meg a kuyta azonosítóját: ")
+    while beker not in azonositok:
+        os.system("cls")
+        akarID = input("Szeretne másik azonosítóra rákeresni?[Igen/Nem] ").lower()
+        while akarID != "igen" and akarID != "nem":
+            os.system("cls")
+            print("Kérem válasszon a lehetőségek közül/Adja meg helyesen!\n")
+            akarID = input("Szeretne másik azonosítóra rákeresni?[Igen/Nem] ").lower()
+        if akarID == "igen":
+            os.system("cls")
+            print(f"Kutya azonosítók: {azonositok[0]}-{azonositok[-1]}")
+            beker = input("Adja meg a kuyta azonosítóját: ")
+            beker = azonositoCheck(beker, azonositok)
+            if beker == False:
+                return False
+        else:
+            return False
+    return beker
+
+def IdKeres(kutyak):
     kutyaazonositok = []
     for kutya in kutyak:
         kutyaazonositok.append(kutya.azonosito)
+    print(f"Kutya azonosítók: {kutyaazonositok[0]}-{kutyaazonositok[-1]}")
     azonositoKer = input("Adja meg a kuyta azonosítóját: ")
-    while azonositoKer not in kutyaazonositok:
-        print("Nincs ilyen azonosítójú!")
-        akarID = input("Szeretne másik azonosítóra rákeresni?[Igen/Nem] ")
-        while akarID.lower() != "igen" or akarID.lower() != "nem":
-            print("Kérem válasszon a lehetőségek közül/Adja meg helyesen!")
-            akarID = input("Szeretne másik azonosítóra rákeresni?[Igen/Nem] ")
-            if akarID.lower() == "igen":
-                azonositoKer = input("Adja meg a kuyta azonosítóját: ")
-            else:
-                return
-    print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
-    for kutya in kutyak:
-        if kutya.azonosito == azonositoKer:
-            print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
-    input("\nTovábblépéshez nyomja meg az ENTER-t. ")
+    azonositoKer = azonositoCheck(azonositoKer, kutyaazonositok)
+    if azonositoKer != False:
+        os.system("cls")
+        print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
+        for kutya in kutyak:
+            if kutya.azonosito == azonositoKer:
+                print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
+        input("\nTovábblépéshez nyomja meg az ENTER-t. ")
 
 
 # fájlÍrások
