@@ -202,16 +202,19 @@ def Listamenu(kutyak):
             while korosztaly.lower() != "kölyök" and korosztaly.lower() != "felnőtt":
                 print("Kérem válasszon a lehetőségek közül/Adja meg helyesen!")
                 korosztaly = input("Adja meg a szűrni kívánt korosztályt: ")
-                if korosztaly.lower() == "kölyök":
-                    print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
+            print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
+            if korosztaly.lower() == "kölyök":
                 for kutya in kutyak:
+                    if korosztaly.lower() == kutya.korosztaly:
                         print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
-                else:
-                    print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
-                    for kutya in kutyak:
+            if korosztaly.lower() == "felnőtt":
+                for kutya in kutyak:
+                    if korosztaly.lower() == kutya.korosztaly:
+                # print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format("Név", "Születés", "Fajta", "Termet", "Neme", "Ivartalanítva-e", "Státusz", "Korosztály", "Életkor", 'ID'))
+                # for kutya in kutyak:
                         print("{0:<15} {1:<10} {2:<25} {3:<8} {4:<5} {5:<15} {6:<12} {7:<10} {8:<8} {9:<10}".format(kutya.nev, kutya.szuletes, kutya.fajta, kutya.termet, kutya.nem, kutya.ivar, kutya.statusz, kutya.korosztaly, kutya.eletkor, kutya.azonosito))
-                time.sleep(5)
-                input(f"\nTovábblépéshez nyomja meg az ENTER-t. ")
+            time.sleep(5)
+            input(f"\nTovábblépéshez nyomja meg az ENTER-t. ")
             valasztas = menu(menupontok2)
         elif valasztas == 8:
             eletkor = input("Adja meg az kilistázandó életkort: ")
