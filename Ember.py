@@ -6,5 +6,3 @@ class Ember:
         self.telefonszam = adatok[2]
         self.emailcim = adatok[3]
         self.lakcim = adatok[4]
-
-

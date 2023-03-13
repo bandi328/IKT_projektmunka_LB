@@ -12,18 +12,3 @@ class Kutya:
             self.korosztaly = adatok[7]
             self.eletkor = adatok[8]
             self.azonosito = adatok[9]
-
-
-    def Eletkor(self, kutyak):
-        eletkor = ""
-        for kutya in kutyak:
-            if kutya.szuletes >= 2020:
-                eletkor = "kölyök"
-            else:
-                eletkor = "felnőtt"
-        return eletkor
-    
-    # def HanyEves(self, kutyak):
-    #     eves = ""
-
-
