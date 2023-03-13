@@ -341,7 +341,7 @@ def KutyaLefoglalas(kutyak, emberek, osszeg):
         inp = input("Szeretne lefoglalni egy kutyát? [Igen/Nem]: ")
     if inp.lower() == "igen":
         os.system("cls")
-        print("Örökbefogadhatő kutyák: ")
+        print("Lefoglalható kutyák: ")
         print(*kutyanevek, sep=", ")
         kutyanev = input("\nAdja meg a kutya nevét: ")
         while kutyanev.capitalize() not in kutyanevek:
