@@ -31,3 +31,4 @@ Bogyó;2020;szetter;közepes;fiú;igen;örökbeadott;kölyök;3;30
 Bundás;2010;labrador;nagy;fiú;nem;lakos;felnőtt;13;31
 Szuszu;2016;csivava;kicsi;fiú;igen;foglalt;felnőtt;7;32
 Karcsi;2020;pitbull;nagy;fiú;nem;örökbeadott;kölyök;3;33
+Buksi;2020;keverék;nagy;fiú;igen;lakos;kölyök;3;34
